@@ -1,0 +1,11 @@
+menu[type="toolbar"] {
+	height: 1.7rem;
+	flex: 0 0 100;
+	background: #ddd;
+	margin: 0;
+	display: flex;
+}
+menu[type="toolbar"] button > svg {
+	max-width: 100%;
+	max-height: 100%;
+}
