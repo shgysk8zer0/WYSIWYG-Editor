@@ -4,15 +4,15 @@
 	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
 	"launch_path": "/",
 	"icons": {
-		"16": "favicon-16.png",
-		"48": "favicon-48.png",
-		"60": "favicon-60.png",
-		"76": "favicon-76.png",
-		"120": "favicon-120.png",
-		"128": "favicon-128.png",
-		"152": "favicon-152.png",
-		"256": "favicon-256.png",
-		"512": "favicon-512.png"
+		"16": "images/favicon-16.png",
+		"48": "images/favicon-48.png",
+		"60": "images/favicon-60.png",
+		"76": "images/favicon-76.png",
+		"120": "images/favicon-120.png",
+		"128": "images/favicon-128.png",
+		"152": "images/favicon-152.png",
+		"256": "images/favicon-256.png",
+		"512": "images/favicon-512.png"
 	},
 	"developer": {
 		"name": "Chris Zuber",
