@@ -1,0 +1,30 @@
+{
+	"version": "0.0.1",
+	"name": "HTML5 WYSIWYG Editor",
+	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
+	"launch_path": "/",
+	"icons": {
+		"16": "favicon-16.png",
+		"48": "favicon-48.png",
+		"60": "favicon-60.png",
+		"76": "favicon-76.png",
+		"120": "favicon-120.png",
+		"128": "favicon-128.png",
+		"152": "favicon-152.png",
+		"256": "favicon-256.png",
+		"512": "favicon-512.png"
+	},
+	"developer": {
+		"name": "Chris Zuber",
+		"url": "https://chriszuber.com"
+	},
+	"type": "web",
+	"permissions": {
+		"desktop-notification": {
+			"description": "Allow notifications of certain events."
+		}
+	},
+	"installs_allowed_from": ["*"],
+	"csp": "default-src 'self';script-src 'self' ;style-src 'self' //fonts.googleapis.com;font-src 'self' //fonts.gstatic.com;img-src 'self' data:;media-src 'self' mediastream:;connect-src 'self';frame-src 'self';frame-ancestors 'self';object-src 'self'"
+
+}
