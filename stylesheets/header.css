@@ -1,0 +1,9 @@
+header {
+	flex: 0 0 100%;
+	align-self: flex-start;
+	background: var(--alt-color);
+	text-align: center;
+	color: whitesmoke;
+	font-family: 'Acme';
+	border-bottom: 0.2em solid var(--highlight-color);
+}

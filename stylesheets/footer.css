@@ -1,0 +1,10 @@
+footer {
+	flex: 0 0 100%;
+	align-self: flex-end;
+	background: var(--alt-color);
+	border-top: 0.2em solid var(--highlight-color);
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: stretch;
+	justify-content: space-around;
+}

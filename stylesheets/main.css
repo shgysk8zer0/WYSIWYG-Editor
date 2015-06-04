@@ -1,0 +1,6 @@
+main {
+	flex: 0 1 var(--main-width);
+	box-shadow: 0.2em 0.2em 0 gray, 0.4em 0.4em 0 black;
+	background: var(--main-bg);
+	padding: 1rem 3rem;
+}
