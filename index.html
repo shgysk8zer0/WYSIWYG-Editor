@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="no-js">
 	<head>
 		<title>HTML5 WYSIWYG Editor</title>
 		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="stylesheets/import.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/core-css/print.css" media="print">
 		<link rel="prefetch" href="images/combined.svg" type="image/svg+xml">
+		<link rel="import" href="components/wysiwyg_menu.html" type="text/html" name="WYSIWYG Menu">
+		<script type="application/javascript" src="scripts/std-js/appcache_listener.js" async defer></script>
+		<script type="application/javascript" src="scripts/std-js/deprefixer.js" async></script>
+		<script type="application/javascript" src="scripts/std-js/poly_modern.js" async></script>
 	</head>
-	<body contextmenu="wysiwyg_menu" contenteditable="true">
-		<noscript>JavaScript is absolutely required for anything other than writing plain text</noscript>
+	<body>
+		<header>
+			<h1>
+				<svg height="30" width="30" class="currentColor"><use xlink:href="images/combined.svg#code"/></svg>
+				&nbsp;HTML5 WYSIWYG Editor&nbsp;
+				<svg height="30" width="30" class="currentColor"><use xlink:href="images/combined.svg#code"/></svg>
+			</h1>
+		</header>
+		<main contextmenu="wysiwyg_menu" contenteditable="true">
+			<noscript>JavaScript is absolutely required for anything other than writing plain text</noscript>
+		</main>
+		<footer>
+			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor" title="Fork on GitHub" class="icon">
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#mark-github"/></svg>
+			</a>
+			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/new" target="_blank" title="Report Issue" class="icon">
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#issue-opened"></svg>
+			</a>
+			<a href="mailto:shgysk8zer0@gmail.com" title="Email Developer" class="icon">
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#mail"></svg>
+			</a>
+		</footer>
 	</body>
 </html>
