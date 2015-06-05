@@ -2,8 +2,19 @@ menu[type="toolbar"] {
 	height: 1.7rem;
 	flex: 0 0 100;
 	background: #ddd;
+	color: #333;
 	margin: 0;
 	display: flex;
+}
+menu[type="toolbar"] menu[label]::before {
+	content: attr(label);
+	color: inherit;
+}
+menu[type="toolbar"] menu {
+	background: inherit;
+}
+menu[type="toolbar"] menu:not(:hover) > * {
+	display: none;
 }
 menu[type="toolbar"] button {
 	background: linear-gradient(gainsboro, whitesmoke);
