@@ -25,6 +25,6 @@
 		}
 	},
 	"installs_allowed_from": ["*"],
-	"csp": "default-src 'self';script-src 'self' ;style-src 'self' //fonts.googleapis.com;font-src 'self' //fonts.gstatic.com;img-src 'self' data:;media-src 'self' mediastream:;connect-src 'self';frame-src 'self';frame-ancestors 'self';object-src 'self'"
+	"csp": "default-src 'self';img-src 'self' data:;media-src 'self' mediastream:;"
 
 }
