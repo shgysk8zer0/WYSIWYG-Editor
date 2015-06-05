@@ -26,5 +26,4 @@
 	},
 	"installs_allowed_from": ["*"],
 	"csp": "default-src 'self';img-src 'self' data:;media-src 'self' mediastream:;"
-
 }
