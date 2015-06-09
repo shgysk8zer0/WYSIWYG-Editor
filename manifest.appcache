@@ -1,0 +1,67 @@
+CACHE MANIFEST
+# VERSION 2015-06-04 23:28
+CACHE:
+
+# SCRIPTS
+appcache.js
+functions.js
+wysiwyg.js
+htmlimport.js
+
+# STYLESHEETS
+stylesheets/style.css
+
+# IMAGES
+images/combined.svg
+images/octicons/svg/alert.svg
+
+# ICONS
+images/favicon-16.png
+images/favicon-48.png
+images/favicon-60.png
+images/favicon-128.png
+images/favicon-256.png
+images/favicon-512.png
+images/favcode.svg
+
+# CURSORS
+
+# HTML IMPORTS
+components/footer.html
+components/header.html
+components/wysiwyg_menu.html
+components/wysiwyg_toolbar.html
+
+# FONTS
+fonts/acme.woff
+fonts/Alice.woff
+fonts/Comfortaa.woff
+fonts/DouarOutline.woff
+fonts/gnome-typewriter.woff
+fonts/HennyPenny-Regular.woff
+fonts/Intuitive.woff
+fonts/Libertine.woff
+fonts/Marck Script.woff
+fonts/OpenSans.woff
+fonts/PressStart2P.woff
+fonts/roboto.woff
+fonts/URW-Chancery-Med-Italic.woff
+fonts/WebSymbols-Regular.woff
+fonts/ubuntu.woff
+
+NETWORK:
+classes.css
+data-filter.css
+details.css
+dialog.css
+import.css
+misc.css
+normalize.css
+responsive.css
+sidebar.css
+style.css
+
+FALLBACK:
+
+SETTINGS:
+fast
