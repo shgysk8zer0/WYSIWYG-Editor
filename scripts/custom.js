@@ -276,7 +276,11 @@ Element.prototype.DnD = function(sets) {
 				progress.classList.add('uploading');
 				sets.appendChild(progress);
 				console.log(e, reader);
-				reader.readAsDataURL(file);
+				if (/image\/*/.test(file.type)) {
+					reader.readAsDataURL(file);
+				} else if (/text\/*/.test(file.type)) {
+					reader.readAsText(file);
+				}
 				reader.addEventListener('progress', function(event) {
 					if (event.lengthComputable) {
 						progress.value = event.loaded / event.total;
@@ -299,8 +303,7 @@ Element.prototype.DnD = function(sets) {
 							default:
 								if (/image\/*/.test(file.type)) {
 									document.execCommand('insertimage', null, event.target.result);
-								}
-								else if (/text\/*/.test(file.type)) {
+								} else if (/text\/*/.test(file.type)) {
 									sets.innerHTML = event.target.result;
 								}
 						}
