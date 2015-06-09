@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# VERSION 2015-06-09 01:36
+# VERSION 2015-06-09 01:58
 CACHE:
 
 # SCRIPTS
@@ -96,6 +96,9 @@ stylesheets/main.css
 stylesheets/footer.css
 stylesheets/core-css/animations.css
 stylesheets/core-css/fonts.css
+
+# OTHER
+*
 
 FALLBACK:
 
