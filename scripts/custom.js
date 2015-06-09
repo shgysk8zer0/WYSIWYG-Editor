@@ -212,7 +212,7 @@ NodeList.prototype.bootstrap = function() {
 				});
 			});
 		});
-		node.query('menu[type="context"]#wysiwyg_menu').forEach(WYSIWYG);
+		node.query('menu[type="context"]#wysiwyg_menu, menu[type="toolbar"]').forEach(WYSIWYG);
 		node.query('[data-request]').forEach(function(el) {
 			el.addEventListener('click', function(event) {
 				event.preventDefault();
