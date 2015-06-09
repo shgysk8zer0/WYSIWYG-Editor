@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@import url("core-css/viewport.css");
+@import url("responsive.css");
+@import url("core-css/normalize.css");
+@import url("core-css/details.css");
+@import url("core-css/dialog.css");
+@import url("core-css/progress.css");
+@import url("core-css/class_rules.css");
+@import url("core-css/data-filter.css");
+@import url("core-css/misc.css");
+@import url("core-css/links.css");
+@import url("core-css/octicons.css");
+@import url("header.css");
+@import url("toolbar.css");
+@import url("main.css");
+@import url("footer.css");
+@import url("core-css/animations.css");
+@import url("core-css/fonts.css");
+
+:root {
+	/*================= Set color vars here =================*/
+	--default-color: rgb(252, 252, 252);
+	--alt-color: rgb(41, 41, 41);
+	--primary-color: rgb(237, 24, 24);
+	--highlight-color: #FF6300;
+	--link-color: hsl(209, 62%, 45%);
+	--border-color: rgb(45, 45, 45);
+	/*========== Set background images, etc here ==========*/
+	--main-bg: #eee;
+	--glass-grad: linear-gradient(to top left, rgba(80, 80, 80, 0.7), rgba(140, 140, 140, 0.9), rgba(40, 40, 40, 0.7));
+	--shadow: rgba(20, 20, 20, 0.9);
+	--tint-glass: linear-gradient(rgba(40, 40, 40, 0.8), rgba(80, 80, 80, 0.7));
+	--header-bg: linear-gradient(rgba(40, 40, 40, 1), rgba(80, 80, 80, 0.97));
+	--progress-grad: linear-gradient(var(--highlight-color), var(--primary-color), var(--highlight-color));
+	/*==================== Set fonts here ====================*/
+	--header-font: 'PressStart';
+	--article-font: 'Ubuntu';
+	--article-header-font: var(--header-font);
+	--icon-font: 'Web Symbols';
+	/*================ Set various icons here ================*/
+	--link-icon: '  K';
+	--tag-icon: '  , ';
+	--new-tab-icon: '  D';
+	--download-icon: '  A';
+	--next-icon: ')';
+	--prev-icon: '(';
+	--unchecked-icon: '  \\';
+	--checked-icon: '  .';
+	--dropdown-open-icon: '[ ';
+	--dropdown-closed-icon: '] ';
+	--close-icon: '\'';
+	--search-icon: 'L';
+	--attachmnent-icon: 'A';
+	/*================== Set cursors here ==================*/
+	--default-cursor: url('../../images/cursors/Arch-black.svgz'), auto;
+	--pointer: url('../../images/cursors/3D_hand_cursor.svgz'), pointer;
+	/*============= Various sizes and positions =============*/
+	--main-width: 85%;
+	--article-width: 67%;
+	--sidebar-width: calc(97% - var(--article-width));
+	--article-position: 2;
+	--sidebar-position: 1;
+}
