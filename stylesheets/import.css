@@ -52,8 +52,8 @@
 	--search-icon: 'L';
 	--attachmnent-icon: 'A';
 	/*================== Set cursors here ==================*/
-	--default-cursor: auto;
-	--pointer: pointer;
+	--default-cursor: url('../../images/cursors/Arch-black.svgz'), auto;
+	--pointer: url('../../images/cursors/3D_hand_cursor.svgz'), pointer;
 	/*============= Various sizes and positions =============*/
 	--main-width: 85%;
 	--article-width: 67%;
