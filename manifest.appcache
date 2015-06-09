@@ -25,6 +25,8 @@ images/favicon-512.png
 images/favcode.svg
 
 # CURSORS
+/images/cursors/Arch-black.svgz
+/images/cursors/3D_hand_cursor.svgz
 
 # HTML IMPORTS
 components/footer.html
