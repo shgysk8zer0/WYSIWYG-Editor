@@ -10,3 +10,6 @@
 [submodule "scripts/std-js"]
 	path = scripts/std-js
 	url = git://github.com/shgysk8zer0/std-js.git
+[submodule "images/cursors"]
+	path = images/cursors
+	url = git://github.com/shgysk8zer0/cursors.git
