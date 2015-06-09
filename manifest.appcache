@@ -1,8 +1,9 @@
 CACHE MANIFEST
-# VERSION 2015-06-09 01:58
+# VERSION 2015-06-09 02:05
 CACHE:
 
 # SCRIPTS
+scripts/combined.js
 
 # STYLESHEETS
 stylesheets/style.css
