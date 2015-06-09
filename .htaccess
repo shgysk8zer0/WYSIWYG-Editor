@@ -9,7 +9,7 @@ DirectoryIndex index.html
 	Header set X-UA-Compatible "IE=edge,chrome=1"
 	Header set Connection "Keep-Alive"
 	<Files index.html>
-		Header set Content-Security-Policy "default-src 'self';img-src 'self' data:;media-src 'self' mediastream:;"
+		Header set Content-Security-Policy "default-src 'self';img-src *;media-src 'self' mediastream:;"
 	</Files>
 	# `mod_headers` can't match based on the content-type, however, we only
 	# want to send this header for HTML pages and not for the other resources
