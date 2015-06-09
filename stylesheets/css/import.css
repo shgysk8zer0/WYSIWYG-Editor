@@ -1,21 +1,21 @@
 @charset "UTF-8";
-@import url("core-css/viewport.css");
+@import url("../core-css/viewport.css");
 @import url("responsive.css");
-@import url("core-css/normalize.css");
-@import url("core-css/details.css");
-@import url("core-css/dialog.css");
-@import url("core-css/progress.css");
-@import url("core-css/class_rules.css");
-@import url("core-css/data-filter.css");
-@import url("core-css/misc.css");
-@import url("core-css/links.css");
-@import url("core-css/octicons.css");
+@import url("../core-css/normalize.css");
+@import url("../core-css/details.css");
+@import url("../core-css/dialog.css");
+@import url("../core-css/progress.css");
+@import url("../core-css/class_rules.css");
+@import url("../core-css/data-filter.css");
+@import url("../core-css/misc.css");
+@import url("../core-css/links.css");
+@import url("../core-css/octicons.css");
 @import url("header.css");
 @import url("toolbar.css");
 @import url("main.css");
 @import url("footer.css");
-@import url("core-css/animations.css");
-@import url("core-css/fonts.css");
+@import url("../core-css/animations.css");
+@import url("../core-css/fonts.css");
 
 :root {
 	/*================= Set color vars here =================*/
@@ -53,8 +53,8 @@
 	--search-icon: 'L';
 	--attachmnent-icon: 'A';
 	/*================== Set cursors here ==================*/
-	--default-cursor: url('../images/cursors/Arch-black.svgz'), auto;
-	--pointer: url('../images/cursors/3D_hand_cursor.svgz'), pointer;
+	--default-cursor: url('../../images/cursors/Arch-black.svgz'), auto;
+	--pointer: url('../../images/cursors/3D_hand_cursor.svgz'), pointer;
 	/*============= Various sizes and positions =============*/
 	--main-width: 90%;
 	--article-width: 67%;

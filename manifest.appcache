@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# VERSION 2015-06-09 03:23
-CACHE:
+# VERSION 2015-06-09 03:52
 
+CACHE:
 # SCRIPTS
 scripts/combined.js
 
 # STYLESHEETS
-stylesheets/style.css
+stylesheets/css/style.css
 stylesheets/core-css/print.css
 
 # IMAGES
@@ -79,9 +79,9 @@ scripts/std-js/wysiwyg.js
 scripts/custom.js
 
 # STYLESHEETS
-stylesheets/import.css
+stylesheets/css/import.css
 stylesheets/core-css/viewport.css
-stylesheets/responsive.css
+stylesheets/css/responsive.css
 stylesheets/core-css/normalize.css
 stylesheets/core-css/details.css
 stylesheets/core-css/dialog.css
@@ -91,10 +91,10 @@ stylesheets/core-css/data-filter.css
 stylesheets/core-css/misc.css
 stylesheets/core-css/links.css
 stylesheets/core-css/octicons.css
-stylesheets/header.css
-stylesheets/toolbar.css
-stylesheets/main.css
-stylesheets/footer.css
+stylesheets/css/header.css
+stylesheets/css/toolbar.css
+stylesheets/css/main.css
+stylesheets/css/footer.css
 stylesheets/core-css/animations.css
 stylesheets/core-css/fonts.css
 
