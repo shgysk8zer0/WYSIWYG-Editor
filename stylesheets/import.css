@@ -24,6 +24,7 @@
 	--primary-color: rgb(237, 24, 24);
 	--highlight-color: #FF6300;
 	--link-color: hsl(209, 62%, 45%);
+	--visited-color: #551A8B;
 	--border-color: rgb(45, 45, 45);
 	/*========== Set background images, etc here ==========*/
 	--main-bg: #eee;
@@ -55,9 +56,11 @@
 	--default-cursor: url('../../images/cursors/Arch-black.svgz'), auto;
 	--pointer: url('../../images/cursors/3D_hand_cursor.svgz'), pointer;
 	/*============= Various sizes and positions =============*/
-	--main-width: 85%;
+	--main-width: 90%;
 	--article-width: 67%;
 	--sidebar-width: calc(97% - var(--article-width));
 	--article-position: 2;
 	--sidebar-position: 1;
+	/*This is the max z-index value. Others can use calc(var(--z-max) - n)*/
+	--z-max: 100;
 }
