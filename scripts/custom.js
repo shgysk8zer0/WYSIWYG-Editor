@@ -93,6 +93,29 @@ window.addEventListener('load', function() {
 		});
 		dl.hidden = false;
 	})(document.querySelector('a[download="index.html"]'));
+	(function(btn) {
+		if ((typeof btn !== 'undefined') && ('mozApps' in navigator)) {
+			var url = new URL(btn.dataset.mozInstall, document.baseURI);
+			var test = navigator.mozApps.checkInstalled(url);
+			test.addEventListener('success', function(event) {
+				if (! this.result) {
+					btn.hidden = false;
+					btn.addEventListener('click', function() {
+						var result = navigator.mozApps.install(url);
+						result.addEventListener('success', function(event) {
+							console.log(event);
+						});
+						result.addEventListener('error', function(err) {
+							console.error(err);
+						});
+					});
+				}
+			});
+			test.addEventListener('error', function(err) {
+				console.error(err);
+			})
+		}
+	})(document.querySelector('[data-moz-install]'));
 	$(window).networkChange(function() {
 		$('html').toggleClass('online', navigator.onLine).toggleClass('offline', !navigator.onLine);
 	}).online(function() {

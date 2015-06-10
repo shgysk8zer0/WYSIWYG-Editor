@@ -1,9 +1,10 @@
 {
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"name": "HTML5 WYSIWYG Editor",
 	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
 	"default_locale": "en",
 	"launch_path": "/index.html",
+	"appcache_path": "/manifest.appcache",
 	"icons": {
 		"16": "images/favicon-16.png",
 		"48": "images/favicon-48.png",
@@ -15,7 +16,6 @@
 		"256": "images/favicon-256.png",
 		"512": "images/favicon-512.png"
 	},
-	"appcache_path": "/manifest.appcache",
 	"fullscreen": "true",
 	"developer": {
 		"name": "Chris Zuber",

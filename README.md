@@ -93,7 +93,7 @@ all of the rest of the `<script>` tags.
 [Demo]: <https://chriszuber.com/demos/wysiwyg-editor/>
 [email]: <mailto:shgysk8zer0@gmail.com>
 [website]: <https://chriszuber.com>
-[wiki]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/wiki>
+[wiki]: <https://shgysk8zer0.github.io/WYSIWYG-Editor>
 [license]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/blob/master/LICENSE> "Licensed under GPL v2"
 [Midas]: <https://developer.mozilla.org/en-US/docs/Midas> "Midas | MDN"
 [Node]: <https://nodejs.org/> "Node.js"
