@@ -1,10 +1,9 @@
 menu[type="toolbar"] {
 	height: 1.7rem;
-	flex: 0 0 100;
 	background: #ddd;
 	color: #333;
 	margin: 0;
-	display: flex;
+	padding: 0;
 }
 menu[type="toolbar"] menu[label]::before {
 	content: attr(label);
