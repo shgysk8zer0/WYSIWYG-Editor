@@ -23,6 +23,7 @@ DirectoryIndex index.html
 		# Header set Cache-Control "public, no-store, must-revalidate, proxy-revalidate, no-transform"
 		# Header set Cache-Control "public, no-cache, no-store, must-revalidate, proxy-revalidate, no-transform"
 		Header unset Accept-Ranges
+		Header unset Cache-Control
 	</Files>
 	<IfModule ssl_module>
 		Header set Strict-Transport-Security max-age=16070400;
@@ -132,6 +133,7 @@ AddDefaultCharset utf-8
 		application/vnd.ms-fontobject \
 		application/x-font-ttf \
 		application/x-web-app-manifest+json \
+		text/cache-manifest \
 		application/xhtml+xml \
 		application/xml \
 		font/opentype \
@@ -160,11 +162,11 @@ AddDefaultCharset utf-8
 # be removed: http://developer.yahoo.com/performance/rules.html#etags.
 
 # `FileETag None` is not enough for every server.
-# <IfModule headers_module>
-# 	Header unset ETag
-# </IfModule>
-#
-# FileETag None
+<IfModule headers_module>
+	Header unset ETag
+</IfModule>
+
+FileETag None
 
 # ------------------------------------------------------------------------------
 # | Expires headers (for better cache control)								 |
