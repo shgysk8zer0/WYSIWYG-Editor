@@ -1084,8 +1084,9 @@ function WYSIWYG(menu)
 {
 	menu.querySelectorAll('[data-editor-command]').forEach(function(item)
 	{
-		item.addEventListener('click', function()
+		item.addEventListener('click', function(event)
 		{
+			event.preventDefault();
 			var arg = null;
 			if (this.dataset.hasOwnProperty('editorValue')) {
 				arg = this.dataset.editorValue;
@@ -1100,7 +1101,8 @@ function WYSIWYG(menu)
 		});
 	});
 	menu.querySelectorAll('[label="Add Class"]').forEach(function(menuitem) {
-		menuitem.addEventListener('click', function() {
+		menuitem.addEventListener('click', function(event) {
+			event.preventDefault();
 			var addClass = prompt('Enter class name to add');
 			if (addClass.length !== 0) {
 				getSelection().anchorNode.parentElement.classList.add(addClass);
@@ -1108,7 +1110,8 @@ function WYSIWYG(menu)
 		});
 	});
 	menu.querySelectorAll('[label="Remove Class"]').forEach(function(menuitem) {
-		menuitem.addEventListener('click', function() {
+		menuitem.addEventListener('click', function(event) {
+			event.preventDefault();
 			var removeClass = prompt('Enter class name to remove');
 			if (removeClass.length !== 0) {
 				var el = getSelection().anchorNode.parentElement;
@@ -1120,7 +1123,8 @@ function WYSIWYG(menu)
 		});
 	});
 	menu.querySelectorAll('[label="Set Attribute"]').forEach(function(menuitem) {
-		menuitem.addEventListener('click', function() {
+		menuitem.addEventListener('click', function(event) {
+			event.preventDefault();
 			var name = prompt('Enter attribute name');
 			if (name.length !== 0) {
 				var value = prompt('Enter attribute value');
@@ -1129,11 +1133,24 @@ function WYSIWYG(menu)
 		})
 	});
 	menu.querySelectorAll('[label="Remove Attribute"]').forEach(function(menuitem) {
-		menuitem.addEventListener('click', function() {
+		menuitem.addEventListener('click', function(event) {
+			event.preventDefault();
 			var attr = prompt('Enter name of attribute to remove');
 			if (attr.length !== 0) {
 				getSelection().anchorNode.parentElement.removeAttribute(attr);
 			}
+		});
+	});
+	menu.querySelectorAll('[label="Save Work"]').forEach(function(item) {
+		item.addEventListener('click', function(event) {
+			event.preventDefault();
+			localStorage.setItem('savedDoc', document.querySelector('[contenteditable="true"]').innerHTML);
+		});
+	});
+	menu.querySelectorAll('[label="Restore Work"]').forEach(function(item) {
+		item.addEventListener('click', function(event) {
+			event.preventDefault();
+			document.querySelector('[contenteditable="true"]').innerHTML = localStorage.getItem('savedDoc');
 		});
 	});
 }
@@ -1377,7 +1394,11 @@ NodeList.prototype.bootstrap = function() {
 		});
 		node.query('[data-fullscreen]').forEach(function(el) {
 			el.addEventListener('click', function(event) {
-				document.querySelector(this.dataset.fullscreen).requestFullScreen();
+				if (fullScreen) {
+					document.cancelFullScreen();
+				} else {
+					document.querySelector(this.dataset.fullscreen).requestFullScreen();
+				}
 			});
 		});
 		node.query('[data-delete]').forEach(function(el) {

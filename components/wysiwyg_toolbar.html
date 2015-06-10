@@ -1,11 +1,59 @@
-<menu type="toolbar">
-	<button type="button" data-fullscreen="main">
-		<svg><use xlink:href="images/combined.svg#screen-full"/></svg>
+<menu type="toolbar" class="flex row wrap sticky" contenteditable="false">
+	<button type="button" title="New paragraph" data-editor-command="insertparagraph">
+		<svg><use xlink:href="images/combined.svg#file-text"/></svg>
 	</button>
-	<button type="button" data-editor-command="insertorderedlist">
+	<button type="buton" title="Bold" data-editor-command="bold">
+		<b>B</b>
+	</button>
+	<button type="button" title="Italic" data-editor-command="italic">
+		<i>I</i>
+	</button>
+	<button type="button" title="Underline" data-editor-command="underline">
+		<u>U</u>
+	</button>
+	<button type="button" title="Strikethrough" data-editor-command="strikethrough">
+		<strike>S</strike>
+	</button>
+	<!-- <button type="button" title="Subscript" data-editor-command="subscript">
+		<sub>sub</sub>
+	</button>
+	<button type="button" title="Superscript" data-editor-command="superscript">
+		<sup>sup</sup>
+	</button> -->
+	<button type="button" title="Blockquote" data-editor-command="formatblock" data-editor-value="BLOCKQUOTE">
+		<svg><use xlink:href="images/combined.svg#quote"/></svg>
+	</button>
+	<button type="button" title="Insert Image" data-editor-command="insertimage" data-prompt="Enter image location">
+		<svg><use xlink:href="images/combined.svg#file-media"/></svg>
+	</button>
+	<button type="button" title="Make Link" data-editor-command="createlink" data-prompt="Enter link location">
+		<svg><use xlink:href="images/combined.svg#link"/></svg>
+	</button>
+	<button type="button" title="Insert Code" data-editor-command="inserthtml" data-selection-to="code">
+		<svg><use xlink:href="images/combined.svg#code"/></svg>
+	</button>
+	<button type="button" title="Make Ordered List" data-editor-command="insertorderedlist">
 		<svg><use xlink:href="images/combined.svg#list-ordered"/></svg>
 	</button>
-	<button type="button" data-editor-command="insertunorderedlist">
+	<button type="button" title="Make Unordered List" data-editor-command="insertunorderedlist">
 		<svg><use xlink:href="images/combined.svg#list-unordered"/></svg>
+	</button>
+	<button type="button" title="Insert Horizontal Rule" data-editor-command="inserthorizontalrule">
+		<svg><use xlink:href="images/combined.svg#horizontal-rule"/></svg>
+	</button>
+	<button type="button" title="Increase Indent" data-editor-command="indent">
+		<svg><use xlink:href="images/combined.svg#move-right"/></svg>
+	</button>
+	<button type="button" title="Decrese Indent" data-editor-command="outdent">
+		<svg><use xlink:href="images/combined.svg#move-left"/></svg>
+	</button>
+	<button type="button" title="Custom HTML" data-editor-command="inserthtml" data-prompt="Enter the HTML to insert.">
+		<svg><use xlink:href="images/combined.svg#file-code"/></svg>
+	</button>
+	<button type="button" title="Remove Formatting" data-editor-command="removeformat">
+		<svg><use xlink:href="images/combined.svg#circle-slash"/></svg>
+	</button>
+	<button type="button" title="Enter Full-Screen" data-fullscreen="main">
+		<svg><use xlink:href="images/combined.svg#screen-full"/></svg>
 	</button>
 </menu>
