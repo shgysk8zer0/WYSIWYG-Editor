@@ -1242,6 +1242,13 @@ window.addEventListener('load', function() {
 		'data-dropzone',
 		'data-import'
 	]);
+	(function(dl) {
+		dl.addEventListener('click', function() {
+			this.href = document.querySelector('[contenteditable="true"]').dataURI();
+			return true;
+		});
+		dl.hidden = false;
+	})(document.querySelector('a[download="index.html"]'));
 	$(window).networkChange(function() {
 		$('html').toggleClass('online', navigator.onLine).toggleClass('offline', !navigator.onLine);
 	}).online(function() {
@@ -1479,3 +1486,6 @@ Element.prototype.DnD = function(sets) {
 		return false;
 	};
 };
+HTMLElement.prototype.dataURI = function() {
+	return 'data:text/html,' + encodeURIComponent(this.innerHTML)
+}
