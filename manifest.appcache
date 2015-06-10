@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# VERSION 2015-06-10 02:35
+# VERSION 2015-06-10 03:41
 
 CACHE:
 # SCRIPTS
@@ -68,6 +68,8 @@ fonts/WebSymbols-Regular.woff
 fonts/ubuntu.woff
 
 NETWORK:
+manifest.appcache
+manifest.webapp
 # JAVASCRIPT
 scripts/std-js/appcache_listener.js
 scripts/std-js/deprefixer.js
