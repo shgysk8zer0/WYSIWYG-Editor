@@ -4,7 +4,6 @@
 	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
 	"default_locale": "en",
 	"launch_path": "/index.html",
-	"package_path": "http://localhost/wysiwyg.zip",
 	"appcache_path": "/manifest.appcache",
 	"icons": {
 		"16": "images/favicon-16.png",
