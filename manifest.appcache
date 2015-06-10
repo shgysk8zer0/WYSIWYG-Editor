@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# VERSION 2015-06-09 03:52
+# VERSION 2015-06-09 19:35
 
 CACHE:
 # SCRIPTS
@@ -29,6 +29,7 @@ images/octicons/svg/horizontal-rule.svg
 images/octicons/svg/circle-slash.svg
 images/octicons/svg/history.svg
 images/octicons/svg/screen-full.svg
+images/octicons/svg/globe.svg
 
 # ICONS
 images/favicon-16.png
