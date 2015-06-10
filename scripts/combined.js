@@ -1144,13 +1144,13 @@ function WYSIWYG(menu)
 	menu.querySelectorAll('[label="Save Work"]').forEach(function(item) {
 		item.addEventListener('click', function(event) {
 			event.preventDefault();
-			localStorage.setItem('savedDoc', document.querySelector('[contenteditable]').innerHTML);
+			localStorage.setItem('savedDoc', document.querySelector('[contenteditable="true"]').innerHTML);
 		});
 	});
 	menu.querySelectorAll('[label="Restore Work"]').forEach(function(item) {
 		item.addEventListener('click', function(event) {
 			event.preventDefault();
-			document.querySelector('[contenteditable]').innerHTML = localStorage.getItem('savedDoc');
+			document.querySelector('[contenteditable="true"]').innerHTML = localStorage.getItem('savedDoc');
 		});
 	});
 }
@@ -1394,7 +1394,11 @@ NodeList.prototype.bootstrap = function() {
 		});
 		node.query('[data-fullscreen]').forEach(function(el) {
 			el.addEventListener('click', function(event) {
-				document.querySelector(this.dataset.fullscreen).requestFullScreen();
+				if (fullScreen) {
+					document.cancelFullScreen();
+				} else {
+					document.querySelector(this.dataset.fullscreen).requestFullScreen();
+				}
 			});
 		});
 		node.query('[data-delete]').forEach(function(el) {

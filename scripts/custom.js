@@ -238,7 +238,11 @@ NodeList.prototype.bootstrap = function() {
 		});
 		node.query('[data-fullscreen]').forEach(function(el) {
 			el.addEventListener('click', function(event) {
-				document.querySelector(this.dataset.fullscreen).requestFullScreen();
+				if (fullScreen) {
+					document.cancelFullScreen();
+				} else {
+					document.querySelector(this.dataset.fullscreen).requestFullScreen();
+				}
 			});
 		});
 		node.query('[data-delete]').forEach(function(el) {
