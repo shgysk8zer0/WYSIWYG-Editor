@@ -6,12 +6,17 @@ main {
 	margin: 2rem auto;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	height: 69vh;
 	overflow-y: auto;
 }
 main > [contenteditable="true"] {
 	flex: 0 0 100%;
 	overflow: auto;
+	width: 80%;
+	border: 2px outset currentcolor;
+	box-shadow: -0.2em 0.2em 0.5em black;
+	resize: horizontal;
 }
 main:-moz-full-screen {
 	height: 100vh;
