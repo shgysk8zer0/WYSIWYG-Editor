@@ -104,6 +104,7 @@ window.addEventListener('load', function() {
 						var result = navigator.mozApps.install(url);
 						result.addEventListener('success', function(event) {
 							console.log(event);
+							btn.hidden = true;
 						});
 						result.addEventListener('error', function(err) {
 							console.error(err);

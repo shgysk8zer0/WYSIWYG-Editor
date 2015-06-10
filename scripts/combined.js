@@ -7,23 +7,6 @@ if (('applicationCache' in window) && document.documentElement.hasAttribute('man
 			}
 		}
 	});
-	applicationCache.addEventListener('error', function(er) {
-		console.error(err);
-	});
-	applicationCache.addEventListener('obsolete', function(event) {
-		console.log(event);
-	});
-	applicationCache.addEventListener('noupdate', function(event) {
-		console.log(event);
-	});
-	applicationCache.addEventListener('checking', function(event) {
-		console.log(event);
-	});
-	applicationCache.addEventListener('downloading', function(event) {
-		console.log(event);
-	});
-
-
 }
 if (! ('Notification' in window)) {
 	window.Notification = window.notifications || window.webkitNotifications || window.oNotifications || window.msNotifications || false;
@@ -1277,6 +1260,7 @@ window.addEventListener('load', function() {
 						var result = navigator.mozApps.install(url);
 						result.addEventListener('success', function(event) {
 							console.log(event);
+							btn.hidden = true;
 						});
 						result.addEventListener('error', function(err) {
 							console.error(err);
