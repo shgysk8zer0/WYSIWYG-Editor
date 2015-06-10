@@ -1,12 +1,29 @@
 if (('applicationCache' in window) && document.documentElement.hasAttribute('manifest')) {
-	applicationCache.addEventListener('updateready', function(event) {
-		if (applicationCache.status === applicationCache.UPDATEREADY) {
-			applicationCache.update() && applicationCache.swapCache();
+	applicationCache.addEventListener('updateready', function() {
+		if (this.status === this.UPDATEREADY) {
+			this.update() && this.swapCache();
 			if (confirm('A new version of this site is available. Load it?')) {
 				location.reload();
 			}
 		}
 	});
+	applicationCache.addEventListener('error', function(er) {
+		console.error(err);
+	});
+	applicationCache.addEventListener('obsolete', function(event) {
+		console.log(event);
+	});
+	applicationCache.addEventListener('noupdate', function(event) {
+		console.log(event);
+	});
+	applicationCache.addEventListener('checking', function(event) {
+		console.log(event);
+	});
+	applicationCache.addEventListener('downloading', function(event) {
+		console.log(event);
+	});
+
+
 }
 if (! ('Notification' in window)) {
 	window.Notification = window.notifications || window.webkitNotifications || window.oNotifications || window.msNotifications || false;
