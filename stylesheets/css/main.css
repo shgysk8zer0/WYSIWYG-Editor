@@ -13,15 +13,23 @@ main > [contenteditable] {
 	overflow: auto;
 }
 main:-moz-full-screen {
+	height: 100vh;
+	width: 100vw;
 	background: #888
 }
 main:-webkit-full-screen {
+	height: 100vh;
+	width: 100vw;
 	background: #888
 }
 main:-ms-full-screen {
+	height: 100vh;
+	width: 100vw;
 	background: #888
 }
 main:fullscreen {
+	height: 100vh;
+	width: 100vw;
 	background: #888
 }
 main:-moz-full-screen > [contenteditable] {
