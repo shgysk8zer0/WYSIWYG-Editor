@@ -250,7 +250,7 @@
 			</h1>
 		</header>
 		<main class="flex column">
-			<menu type="toolbar" class="flex row wrap sticky" contenteditable="false">
+			<menu type="toolbar" role="menubar" class="flex row wrap sticky" contenteditable="false">
 				<button type="button" title="New paragraph" data-editor-command="insertparagraph">
 					<svg><use xlink:href="images/combined.svg#file-text"/></svg>
 				</button>
@@ -275,6 +275,7 @@
 				<button type="button" title="Blockquote" data-editor-command="formatblock" data-editor-value="BLOCKQUOTE">
 					<svg><use xlink:href="images/combined.svg#quote"/></svg>
 				</button>
+				<span class="spacer"></span>
 				<button type="button" title="Insert Image" data-editor-command="insertimage" data-prompt="Enter image location">
 					<svg><use xlink:href="images/combined.svg#file-media"/></svg>
 				</button>
@@ -290,6 +291,7 @@
 				<button type="button" title="Make Unordered List" data-editor-command="insertunorderedlist">
 					<svg><use xlink:href="images/combined.svg#list-unordered"/></svg>
 				</button>
+				<span class="spacer"></span>
 				<button type="button" title="Insert Horizontal Rule" data-editor-command="inserthorizontalrule">
 					<svg><use xlink:href="images/combined.svg#horizontal-rule"/></svg>
 				</button>
@@ -299,12 +301,17 @@
 				<button type="button" title="Decrese Indent" data-editor-command="outdent">
 					<svg><use xlink:href="images/combined.svg#move-left"/></svg>
 				</button>
-				<button type="button" title="Custom HTML" data-editor-command="inserthtml" data-prompt="Enter the HTML to insert.">
-					<svg><use xlink:href="images/combined.svg#file-code"/></svg>
-				</button>
+				<span class="spacer"></span>
 				<button type="button" title="Remove Formatting" data-editor-command="removeformat">
 					<svg><use xlink:href="images/combined.svg#circle-slash"/></svg>
 				</button>
+				<button type="button" title="Custom HTML" data-editor-command="inserthtml" data-prompt="Enter the HTML to insert.">
+					<svg><use xlink:href="images/combined.svg#file-code"/></svg>
+				</button>
+				<span class="spacer"></span>
+				<a role="button" title="Download HTML" href="" download="index.html" hidden>
+					<svg><use xlink:href="images/combined.svg#cloud-download"/></svg>
+				</a>
 				<button type="button" title="Enter Full-Screen" data-fullscreen="main">
 					<svg><use xlink:href="images/combined.svg#screen-full"/></svg>
 				</button>
