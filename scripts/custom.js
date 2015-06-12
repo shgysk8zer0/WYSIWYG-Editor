@@ -339,7 +339,8 @@ Element.prototype.DnD = function(sets) {
 								if (/image\/*/.test(file.type)) {
 									document.execCommand('insertimage', null, event.target.result);
 								} else if (/text\/*/.test(file.type)) {
-									sets.innerHTML = event.target.result;
+									var content = new DOMParser().parseFromString(event.target.result, file.type);
+									getSelection().anchorNode.parentElement.appendChild(content.body);
 								}
 						}
 					}
