@@ -269,7 +269,7 @@ NodeList.prototype.bootstrap = function() {
 		});
 		node.query('[data-fullscreen]').forEach(function(el) {
 			el.addEventListener('click', function(event) {
-				if (fullScreen) {
+				if (document.fullScreen || document.mozFullScreen || document.webkitFullScreen || document.msFullScreen) {
 					document.cancelFullScreen();
 				} else {
 					document.querySelector(this.dataset.fullscreen).requestFullScreen();
