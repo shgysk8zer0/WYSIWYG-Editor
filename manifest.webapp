@@ -3,8 +3,8 @@
 	"name": "HTML5 WYSIWYG Editor",
 	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
 	"default_locale": "en",
-	"launch_path": "/index.html",
-	"appcache_path": "/manifest.appcache",
+	"launch_path": "/demos/wysiwyg-editor/",
+	"appcache_path": "manifest.appcache",
 	"icons": {
 		"16": "images/favicon-16.png",
 		"48": "images/favicon-48.png",
