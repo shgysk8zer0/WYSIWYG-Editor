@@ -20,45 +20,29 @@ main > [contenteditable="true"] {
 	resize: horizontal;
 }
 main:-moz-full-screen {
-	height: 100vh;
 	width: 100vw;
-	background: #888
-}
-main:-webkit-full-screen {
-	height: 100vh;
-	width: 100vw;
-	background: #888
-}
-main:-ms-full-screen {
-	height: 100vh;
-	width: 100vw;
-	background: #888
+	padding: 0;
+	margin: 0;
+	background: #888;
 }
 main:fullscreen {
-	height: 100vh;
 	width: 100vw;
-	background: #888
+	padding: 0;
+	margin: 0;
+	background: #888;
 }
 main:-moz-full-screen > [contenteditable="true"] {
-	padding: 2rem;
-	background: var(--main-bg);
-	box-shadow: -1em 1em 1em #333;
-	border: 0.2em inset dimgray;
-}
-main:-webkit-full-screen > [contenteditable="true"] {
-	padding: 2rem;
-	background: var(--main-bg);
-	box-shadow: -1em 1em 1em #333;
-	border: 0.2em inset dimgray;
-}
-main:-ms-full-screen > [contenteditable="true"] {
-	padding: 2rem;
+	max-height: 90vh;
+	padding: 0 2rem;
+	margin: 0;
 	background: var(--main-bg);
 	box-shadow: -1em 1em 1em #333;
 	border: 0.2em inset dimgray;
 }
 main:fullscreen > [contenteditable="true"] {
-	padding: 2rem;
+	max-height: 90vh;
+	padding: 0 2rem;
+	margin: 0;
 	background: var(--main-bg);
 	box-shadow: -1em 1em 1em #333;
 	border: 0.2em inset dimgray;
