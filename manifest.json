@@ -5,7 +5,7 @@
   "description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
   "version": "1.0.4",
   "minimum_chrome_version": "38",
-
+  "display": "standalone",
   "icons": {
 		"16": "images/favicon-16.png",
 		"48": "images/favicon-48.png",
