@@ -10,7 +10,7 @@ main {
 	overflow-y: auto;
 }
 main > [contenteditable="true"] {
-	flex: 1 0 auto;
+	flex: 0 1 61vh;
 	overflow: auto;
 	width: 80%;
 	padding: 0 1em;
