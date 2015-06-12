@@ -8,4 +8,5 @@ header {
 	border-bottom: 0.3em solid var(--border-color);
 	box-shadow: 0 0.4rem 1rem black;
 	justify-content: center;
+	width: 100vw;
 }

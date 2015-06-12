@@ -7,6 +7,7 @@ footer {
 	justify-content: space-around;
 	padding: 0.7rem 0;
 	color: #E1E3A7;
+	width: 100vw;
 }
 footer button, footer [role="button"], footer button:active, footer [role="button"]:active {
 	background: initial;

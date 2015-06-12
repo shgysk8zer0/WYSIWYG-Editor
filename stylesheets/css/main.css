@@ -32,7 +32,7 @@ main:fullscreen {
 }
 main:-moz-full-screen > [contenteditable="true"] {
 	max-height: 90vh;
-	flex: 0 0 100%;
+	flex: 1 0 100%;
 	padding: 0 2rem;
 	margin: 0;
 	background: var(--main-bg);
@@ -41,7 +41,7 @@ main:-moz-full-screen > [contenteditable="true"] {
 }
 main:fullscreen > [contenteditable="true"] {
 	max-height: 90vh;
-	flex: 0 0 100%;
+	flex: 1 0 100%;
 	padding: 0 2rem;
 	margin: 0;
 	background: var(--main-bg);
