@@ -29,7 +29,7 @@ DirectoryIndex index.html
 		Header set Strict-Transport-Security max-age=16070400;
 	</IfModule>
 	<IfModule setenvif_module>
-		<FilesMatch "\.(gif|ico|jpe?g|png|svgz?|webp)$">
+		<FilesMatch "\.(gif|ico|jpe?g|png|svgz?|webp|webapp)$">
 			SetEnvIf Origin ":" IS_CORS
 			Header set Access-Control-Allow-Origin "*" env=IS_CORS
 		</FilesMatch>
