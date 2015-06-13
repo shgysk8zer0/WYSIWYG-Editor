@@ -1509,5 +1509,8 @@ Element.prototype.DnD = function(sets) {
 	};
 };
 HTMLElement.prototype.dataURI = function() {
-	return 'data:text/html,' + encodeURIComponent(this.innerHTML)
+	var doc = new DOMParser().parseFromString('', 'text/html');
+	doc.head.appendChild(doc.createElement('meta')).setAttribute('charset', 'utf-8');
+	doc.body.appendChild(this.cloneNode(true));
+	return 'data:text/html,' + encodeURIComponent('<!DOCTYPE html>' + doc.documentElement.outerHTML);
 }
