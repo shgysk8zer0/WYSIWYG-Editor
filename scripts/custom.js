@@ -334,7 +334,7 @@ Element.prototype.DnD = function(sets) {
 							var selection = getSelection().anchorNode;
 							var container = (selection.nodeType === 1) ? selection : selection.parentElement;
 							content.body.childNodes.forEach(function(node) {
-								container.appendChild(node);
+								container.appendChild(node.cloneNode(true));
 							});
 							break;
 
