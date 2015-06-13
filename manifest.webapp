@@ -1,5 +1,5 @@
 {
-	"version": "1.0.5",
+	"version": "1.0.8",
 	"name": "HTML5 WYSIWYG Editor",
 	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
 	"default_locale": "en",
@@ -28,7 +28,7 @@
 		}
 	},
 	"installs_allowed_from": ["*"],
-	"csp": "default-src 'self';img-src * 'self' data:;media-src 'self' mediastream:;",
+	"csp": "default-src 'self';style-src 'self' 'unsafe-inline';img-src * 'self' data:;media-src 'self' mediastream:;",
 	"activities": {
 		"share": {
 			"filters": {
