@@ -409,11 +409,7 @@ Element.prototype.wordCount = function()
 						case 'text/html':
 						case 'text/xml':
 							var content = new DOMParser().parseFromString(event.target.result, file.type);
-							var selection = getSelection().anchorNode;
-							var container = (selection.nodeType === 1) ? selection : selection.parentElement;
-							content.body.childNodes.forEach(function(node) {
-								container.appendChild(node.cloneNode(true));
-							});
+							document.execCommand('insertHTML', null, content.body.innerHTML);
 							break;
 
 						default:
@@ -432,7 +428,13 @@ Element.prototype.wordCount = function()
 };
 HTMLElement.prototype.dataURI = function() {
 	var doc = new DOMParser().parseFromString('', 'text/html');
+	var style = doc.createElement('link');
 	doc.head.appendChild(doc.createElement('meta')).setAttribute('charset', 'utf-8');
+	style.setAttribute('rel', 'stylesheet');
+	style.setAttribute('type', 'text/css');
+	style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+	doc.head.appendChild(style);
+
 	this.childNodes.forEach(function(node) {
 		doc.body.appendChild(node.cloneNode(true));
 	});
