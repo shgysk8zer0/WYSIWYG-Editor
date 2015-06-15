@@ -88,7 +88,14 @@ window.addEventListener('load', function() {
 	]);
 	(function(dl) {
 		dl.addEventListener('click', function() {
-			this.href = document.querySelector('[contenteditable="true"]').dataURI();
+			var doc = document.querySelector('[contenteditable="true"]').toDocument();
+			var style = doc.createElement('link');
+			style.setAttribute('rel', 'stylesheet');
+			style.setAttribute('type', 'text/css');
+			style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+			doc.head.appendChild(style);
+
+			this.href = doc.dataURI();
 			return true;
 		});
 		dl.hidden = false;
