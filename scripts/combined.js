@@ -190,7 +190,7 @@ if(! ('supports' in CSS)) {
 ].filter(function (method) {
 	return !(method in NodeList.prototype) && (method in Array.prototype);
 }).forEach(function (method) {
-	NodeList.prototype[method] = Array.prototype[method]
+	NodeList.prototype[method] = Array.prototype[method];
 });
 DOMTokenList.prototype.pick = function(cname1, cname2, condition)
 {
@@ -364,7 +364,8 @@ Element.prototype.ajax = function(args) {
 Element.prototype.wordCount = function()
 {
 	return this.textContent.split(' ').length;
-};Element.prototype.DnD = function(sets) {
+};
+Element.prototype.DnD = function(sets) {
 	"use strict";
 	this.ondragover = function(event) {
 		this.classList.add('receiving');
@@ -384,7 +385,7 @@ Element.prototype.wordCount = function()
 					progress = document.createElement('progress');
 				progress.min = 0;
 				progress.max = 1;
-				progress.value= 0;
+				progress.value = 0;
 				progress.classList.add('uploading');
 				sets.appendChild(progress);
 				if (/image\/*/.test(file.type)) {
@@ -397,48 +398,58 @@ Element.prototype.wordCount = function()
 						progress.value = event.loaded / event.total;
 					}
 				});
-				reader.onload = function(event) {
+				reader.addEventListener('load', function(event) {
 					progress.parentElement.removeChild(progress);
 					switch (file.type) {
 						case 'image/png':
 						case 'image/jpeg':
 						case 'image/svg':
+						case 'image/gif':
 							document.execCommand('insertimage', null, event.target.result);
 							break;
 
-						case 'text/html':
-						case 'text/xml':
-							var content = new DOMParser().parseFromString(event.target.result, file.type);
-							document.execCommand('insertHTML', null, content.body.innerHTML);
-							break;
-
 						default:
-							console.error(new Error('Unhandled file type: ' + file.type));
+							try {
+								var content = new DOMParser().parseFromString(event.target.result, file.type);
+								document.execCommand('insertHTML', null, content.body.innerHTML);
+							} catch (exc) {
+								console.error(exc);
+							}
+							break;
 					}
-				};
-				reader.onerror = function(event) {
+				});
+				reader.addEventListener('error', function(event) {
 					progress.parentElement.removeChild(progress);
 					console.error(event);
-				};
-			console.log(file);
+				});
 			}
 		}
 		return false;
 	};
 };
 HTMLElement.prototype.dataURI = function() {
-	var doc = new DOMParser().parseFromString('', 'text/html');
+	var doc = this.toDocument();
 	var style = doc.createElement('link');
-	doc.head.appendChild(doc.createElement('meta')).setAttribute('charset', 'utf-8');
 	style.setAttribute('rel', 'stylesheet');
 	style.setAttribute('type', 'text/css');
 	style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
 	doc.head.appendChild(style);
 
+	return doc.dataURI();
+}
+HTMLElement.prototype.toDocument = function (charset) {
+	if (typeof charset !== 'string') {
+		charset = 'utf-8';
+	}
+	var doc = new DOMParser().parseFromString('', 'text/html');
+	doc.head.appendChild(doc.createElement('meta')).setAttribute('charset', charset);
 	this.childNodes.forEach(function(node) {
 		doc.body.appendChild(node.cloneNode(true));
 	});
-	return 'data:text/html,' + encodeURIComponent('<!DOCTYPE html>' + doc.documentElement.outerHTML);
+	return doc;
+};
+HTMLDocument.prototype.dataURI = function() {
+	return 'data:text/html,' + encodeURIComponent('<!DOCTYPE html>' + this.documentElement.outerHTML);
 }
 Element.prototype.query = function(query)
 {
@@ -1228,6 +1239,102 @@ function WYSIWYG(menu)
 		});
 	});
 }
+window.addEventListener('keypress', function (event) {
+    if (event.target.matches('[contenteditable="true"], [contenteditable="true"] *')) {
+        switch (event.key.toLowerCase()) {
+            case 'y':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('redo');
+                }
+                break;
+            case 'z':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault()
+                    event.stopPropagation();
+                    document.execCommand('undo');
+                }
+                break;
+            case 'a':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('selectall');
+                }
+                break;
+            case 'e':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justifyCenter');
+                }
+                break;
+            case 'l':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justifyLeft');
+                }
+                break;
+            case 'r':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justifyRight');
+                }
+                break;
+            case 'j':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justiyFull');
+                }
+                break;
+            case 'i':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('italic');
+                }
+                break;
+            case 'b':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('bold');
+                }
+                break;
+            case 'u':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('underline');
+                }
+                break;
+            case 'k':
+                if (!(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('strikethrough');
+                }
+                break;
+            case 'tab':
+                event.preventDefault();
+                event.stopPropagation();
+                (event.shiftKey) ? document.execCommand('outdent')  : document.execCommand('indent');
+                break;
+            default:
+                console.log(event, this);
+                break;
+        }
+    }
+},
+true);
 window.addEventListener('load', function() {
 	"use strict";
 	var html = $('html'),
@@ -1318,7 +1425,14 @@ window.addEventListener('load', function() {
 	]);
 	(function(dl) {
 		dl.addEventListener('click', function() {
-			this.href = document.querySelector('[contenteditable="true"]').dataURI();
+			var doc = document.querySelector('[contenteditable="true"]').toDocument();
+			var style = doc.createElement('link');
+			style.setAttribute('rel', 'stylesheet');
+			style.setAttribute('type', 'text/css');
+			style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+			doc.head.appendChild(style);
+
+			this.href = doc.dataURI();
 			return true;
 		});
 		dl.hidden = false;
