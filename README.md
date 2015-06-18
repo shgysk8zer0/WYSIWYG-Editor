@@ -103,7 +103,7 @@ all of the rest of the `<script>` tags.
 [Issues]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/new>
 [Pull-req]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/compare/>
 [README]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/blob/master/README.md>
-[Demo]: <https://chriszuber.com/demos/wysiwyg-editor/>
+[Demo]: <http://wysiwyg.chriszuber.com/>
 [email]: <mailto:shgysk8zer0@gmail.com>
 [website]: <https://chriszuber.com>
 [wiki]: <https://shgysk8zer0.github.io/WYSIWYG-Editor>
