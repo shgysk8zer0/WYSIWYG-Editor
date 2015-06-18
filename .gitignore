@@ -2,6 +2,8 @@
 /*.sig
 /*.pem
 /*.crx
+/patches/
+*.patch
 #################
 ## Eclipse
 #################
