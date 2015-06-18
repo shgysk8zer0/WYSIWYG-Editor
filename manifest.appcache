@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# VERSION 2015-06-17 09:48
+# VERSION 2015-06-17 22:42
 scripts/combined.js
 
 # STYLESHEETS
@@ -42,10 +42,11 @@ images/cursors/Arch-black.svgz
 images/cursors/3D_hand_cursor.svgz
 
 # HTML IMPORTS
-components/footer.html
-components/header.html
-components/wysiwyg_menu.html
-components/wysiwyg_toolbar.html
+# components/footer.html
+# components/header.html
+# components/README.html
+# components/wysiwyg_menu.html
+# components/wysiwyg_toolbar.html
 
 # FONTS
 fonts/acme.woff
