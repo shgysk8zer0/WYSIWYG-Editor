@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# VERSION 2015-06-17 22:42
+# VERSION 2015-06-18 0:53
 scripts/combined.js
 
 # STYLESHEETS
@@ -66,40 +66,6 @@ fonts/WebSymbols-Regular.woff
 fonts/ubuntu.woff
 
 NETWORK:
-manifest.appcache
-manifest.webapp
-# JAVASCRIPT
-scripts/std-js/appcache_listener.js
-scripts/std-js/deprefixer.js
-scripts/std-js/poly_modern.js
-scripts/std-js/prototypes.js
-scripts/std-js/support_test.js
-scripts/std-js/zq.js
-scripts/std-js/functions.js
-scripts/std-js/wysiwyg.js
-scripts/custom.js
-
-# STYLESHEETS
-stylesheets/css/import.css
-stylesheets/core-css/viewport.css
-stylesheets/css/responsive.css
-stylesheets/core-css/normalize.css
-stylesheets/core-css/details.css
-stylesheets/core-css/dialog.css
-stylesheets/core-css/progress.css
-stylesheets/core-css/class_rules.css
-stylesheets/core-css/data-filter.css
-stylesheets/core-css/misc.css
-stylesheets/core-css/links.css
-stylesheets/core-css/octicons.css
-stylesheets/css/header.css
-stylesheets/core-css/toolbar.css
-stylesheets/css/main.css
-stylesheets/css/footer.css
-stylesheets/core-css/animations.css
-stylesheets/core-css/fonts.css
-
-# OTHER
 *
 
 FALLBACK:

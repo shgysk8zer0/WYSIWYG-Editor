@@ -3,7 +3,7 @@
 	"name": "HTML5 WYSIWYG Editor",
 	"short_name": "HTML5 WYSIWYG Editor",
 	"description": "A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript",
-	"version": "1.1.0",
+	"version": "1.0.9",
 	"minimum_chrome_version": "38",
 	"icons": {
 		"16": "images/favicon-16.png",
