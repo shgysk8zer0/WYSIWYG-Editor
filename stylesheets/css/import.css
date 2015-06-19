@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("../core-css/viewport.css");
 @import url("responsive.css");
-@import url("../core-css/normalize.css");
+@import url("../normalize/normalize.css");
 @import url("../core-css/details.css");
 @import url("../core-css/dialog.css");
 @import url("../core-css/progress.css");
