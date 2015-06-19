@@ -66,6 +66,7 @@
 		<script type="application/javascript" src="scripts/std-js/zq.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/functions.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/wysiwyg.js" async defer></script>
+		<script type="application/javascript" src="scripts/std-js/kbd_shortcuts.js" async></script>
 		<script type="application/javascript" src="scripts/custom.js" async defer></script>
 	</head>
 	<body class="flex column wrap">
@@ -319,7 +320,7 @@
 				<button type="button" title="New paragraph" data-editor-command="insertparagraph">
 					<svg><use xlink:href="images/combined.svg#file-text"/></svg>
 				</button>
-				<button type="buton" title="Toggle Bold" data-editor-command="bold">
+				<button type="button" title="Toggle Bold" data-editor-command="bold">
 					<b>B</b>
 				</button>
 				<button type="button" title="Toggle Italic" data-editor-command="italic">
@@ -381,7 +382,7 @@
 					<svg><use xlink:href="images/combined.svg#screen-full"/></svg>
 				</button>
 			</menu>
-			<div contextmenu="wysiwyg_menu" contenteditable="true" data-dropzone="body"></div>
+			<section contextmenu="wysiwyg_menu" contenteditable="true" data-dropzone="body"></section>
 			<noscript>JavaScript is absolutely required for anything other than writing plain text</noscript>
 		</main>
 		<footer class="flex row">
@@ -391,7 +392,7 @@
 			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor" target="_blank" title="Fork on GitHub" class="icon">
 				<svg width="40" height="40"><use xlink:href="images/combined.svg#repo"/></svg>
 			</a>
-			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/new" target="_blank" title="Report Issue" class="icon">
+			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/" target="_blank" title="Report Issue" class="icon">
 				<svg width="40" height="40"><use xlink:href="images/combined.svg#issue-opened"/></svg>
 			</a>
 			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/blob/master/README.md" target="_blank" title="View README" class="icon">
