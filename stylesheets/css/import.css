@@ -21,7 +21,7 @@
 	/*================= Set color vars here =================*/
 	--default-color: rgb(252, 252, 252);
 	--alt-color: rgb(41, 41, 41);
-	--primary-color: rgb(237, 24, 24);
+	--primary-color: #18ED39;
 	--highlight-color: #2EA900;
 	--link-color: #5481BE;
 	--visited-color: #07662F;
@@ -31,7 +31,7 @@
 	--glass-grad: linear-gradient(to top left, rgba(80, 80, 80, 0.7), rgba(140, 140, 140, 0.9), rgba(40, 40, 40, 0.7));
 	--shadow: rgba(20, 20, 20, 0.9);
 	--tint-glass: linear-gradient(rgba(40, 40, 40, 0.8), rgba(80, 80, 80, 0.7));
-	--header-bg: linear-gradient(rgba(40, 40, 40, 1), rgba(80, 80, 80, 0.97));
+	--header-bg: #292929;
 	--progress-grad: linear-gradient(var(--highlight-color), var(--primary-color), var(--highlight-color));
 	/*==================== Set fonts here ====================*/
 	--header-font: 'PressStart';

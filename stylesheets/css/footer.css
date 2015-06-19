@@ -1,7 +1,7 @@
 footer {
 	flex: 0 0 100%;
 	align-self: flex-end;
-	background: var(--alt-color);
+	background: var(--header-bg);
 	border-top: 0.3em solid var(--border-color);
 	align-items: stretch;
 	justify-content: space-around;

@@ -1,7 +1,7 @@
 header {
 	flex: 0 0 100%;
 	align-self: flex-start;
-	background: var(--alt-color);
+	background: var(--header-bg);
 	text-align: center;
 	color: whitesmoke;
 	font-family: 'Acme';
