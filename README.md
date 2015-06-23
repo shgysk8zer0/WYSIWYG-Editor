@@ -5,7 +5,7 @@
 
 ## Requirements
 
-* Firefox or ~~Chrome~~ (IE = :poop:)
+* Firefox or Chrome (IE = :poop:)
 * `document.execCommand` support
 * SVG, including `<use>`
 
@@ -15,21 +15,34 @@
 * Offline access using `ApplicationCache`
 * Full-Screen editing
 * Drag-n-Drop images to add them (*base64 encoded data-URI*)
-* Drag-n-Drop HTML files to import (*currently overwrites existing content*)
+* Drag-n-Drop HTML files to import
 * Save and restore work using `localStorage`
 * Save work as file using `download` attribute
 
+## Keyboard Shortcuts
+* `CTRL + a` &mdash; Select All
+* `CTRL + z` &mdash; Undo
+* `CTRL + y` &mdash; Redo
+* `CTRL + b` &mdash; Toggle Bold
+* `CTRL + i` &mdash; Toggle Italic
+* `CTRL + u` &mdash; Toggle Underline
+* `CTRL + k` &mdash; Toggle Strike-through (_Firefox Only_)
+* `CTRL + e` &mdash; Justify Center (_Firefox Only_)
+* `CTRL + l` &mdash; Justify Left (_Firefox Only_)
+* `CTRL + r` &mdash; Justify Right (_Firefox Only_)
+* `CTRL + j` &mdash; Justify Full (_Firefox Only_)
+* `tab` &mdash; Increase Indentation (Blockquote for paragraphs)
+* `SHIFT + tab` &mdash; Decrease Indentation
 
-## :coffee: Contributing :godmode:
+## :coffee: :godmode: Contributing :godmode: :coffee:
 
 ### Helpful Tools
 * [GitHub Atom][Atom]
 * [Firefox Developer Edition][Firefox-dev]
-* [Myth][Myth] -- *CSS preprocessor using pure CSS*
-* [Node.js][Node] -- *Required for Myth*
+* [Myth][Myth] &mdash; *CSS preprocessor using pure CSS*
+* [Node.js][Node] &mdash; *Required for Myth*
 
 ### Installation
-
 __From source using Git__  
 1. Fork from [GitHub][GitHub]
 ```shell
@@ -90,7 +103,7 @@ all of the rest of the `<script>` tags.
 [Issues]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/new>
 [Pull-req]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/compare/>
 [README]: <https://github.com/shgysk8zer0/WYSIWYG-Editor/blob/master/README.md>
-[Demo]: <https://chriszuber.com/demos/wysiwyg-editor/>
+[Demo]: <http://wysiwyg.chriszuber.com/>
 [email]: <mailto:shgysk8zer0@gmail.com>
 [website]: <https://chriszuber.com>
 [wiki]: <https://shgysk8zer0.github.io/WYSIWYG-Editor>

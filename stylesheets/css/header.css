@@ -1,11 +1,12 @@
 header {
 	flex: 0 0 100%;
 	align-self: flex-start;
-	background: var(--alt-color);
+	background: var(--header-bg);
 	text-align: center;
 	color: whitesmoke;
 	font-family: 'Acme';
 	border-bottom: 0.3em solid var(--border-color);
 	box-shadow: 0 0.4rem 1rem black;
 	justify-content: center;
+	width: 100vw;
 }

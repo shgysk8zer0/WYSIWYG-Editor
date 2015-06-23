@@ -190,7 +190,7 @@ if(! ('supports' in CSS)) {
 ].filter(function (method) {
 	return !(method in NodeList.prototype) && (method in Array.prototype);
 }).forEach(function (method) {
-	NodeList.prototype[method] = Array.prototype[method]
+	NodeList.prototype[method] = Array.prototype[method];
 });
 DOMTokenList.prototype.pick = function(cname1, cname2, condition)
 {
@@ -365,8 +365,92 @@ Element.prototype.wordCount = function()
 {
 	return this.textContent.split(' ').length;
 };
-/*AppCache updater*/
-/*$(window) .load(function (e) { *//*Check for appCache updates if there is a manifest set*/
+Element.prototype.DnD = function(sets) {
+	"use strict";
+	this.ondragover = function(event) {
+		this.classList.add('receiving');
+		return false;
+	};
+	this.ondragend = function(event) {
+		this.classList.remove('receiving');
+		return false;
+	};
+	this.ondrop = function(e) {
+		e.preventDefault();
+		this.classList.remove('receiving');
+		if (e.dataTransfer.files.length) {
+			for (var i=0; i < e.dataTransfer.files.length; i++) {
+				var file = e.dataTransfer.files[i],
+					reader = new FileReader(),
+					progress = document.createElement('progress');
+				progress.min = 0;
+				progress.max = 1;
+				progress.value = 0;
+				progress.classList.add('uploading');
+				sets.appendChild(progress);
+				if (/image\/*/.test(file.type)) {
+					reader.readAsDataURL(file);
+				} else if (/text\/*/.test(file.type)) {
+					reader.readAsText(file);
+				}
+				reader.addEventListener('progress', function(event) {
+					if (event.lengthComputable) {
+						progress.value = event.loaded / event.total;
+					}
+				});
+				reader.addEventListener('load', function(event) {
+					progress.parentElement.removeChild(progress);
+					switch (file.type) {
+						case 'image/png':
+						case 'image/jpeg':
+						case 'image/svg':
+						case 'image/gif':
+							document.execCommand('insertimage', null, event.target.result);
+							break;
+
+						default:
+							try {
+								var content = new DOMParser().parseFromString(event.target.result, file.type);
+								document.execCommand('insertHTML', null, content.body.innerHTML);
+							} catch (exc) {
+								console.error(exc);
+							}
+							break;
+					}
+				});
+				reader.addEventListener('error', function(event) {
+					progress.parentElement.removeChild(progress);
+					console.error(event);
+				});
+			}
+		}
+		return false;
+	};
+};
+HTMLElement.prototype.dataURI = function() {
+	var doc = this.toDocument();
+	var style = doc.createElement('link');
+	style.setAttribute('rel', 'stylesheet');
+	style.setAttribute('type', 'text/css');
+	style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+	doc.head.appendChild(style);
+
+	return doc.dataURI();
+}
+HTMLElement.prototype.toDocument = function (charset) {
+	if (typeof charset !== 'string') {
+		charset = 'utf-8';
+	}
+	var doc = new DOMParser().parseFromString('', 'text/html');
+	doc.head.appendChild(doc.createElement('meta')).setAttribute('charset', charset);
+	this.childNodes.forEach(function(node) {
+		doc.body.appendChild(node.cloneNode(true));
+	});
+	return doc;
+};
+HTMLDocument.prototype.dataURI = function() {
+	return 'data:text/html,' + encodeURIComponent('<!DOCTYPE html>' + this.documentElement.outerHTML);
+}
 Element.prototype.query = function(query)
 {
 	var els = [];
@@ -1087,6 +1171,7 @@ function WYSIWYG(menu)
 		item.addEventListener('click', function(event)
 		{
 			event.preventDefault();
+			document.execCommand('styleWithCSS', null, this.dataset.hasOwnProperty('styleWithCss'));
 			var arg = null;
 			if (this.dataset.hasOwnProperty('editorValue')) {
 				arg = this.dataset.editorValue;
@@ -1154,6 +1239,102 @@ function WYSIWYG(menu)
 		});
 	});
 }
+window.addEventListener('keypress', function (event) {
+    if (event.target.matches('[contenteditable="true"], [contenteditable="true"] *')) {
+        switch (event.key.toLowerCase()) {
+            case 'y':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('redo');
+                }
+                break;
+            case 'z':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault()
+                    event.stopPropagation();
+                    document.execCommand('undo');
+                }
+                break;
+            case 'a':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('selectall');
+                }
+                break;
+            case 'e':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justifyCenter');
+                }
+                break;
+            case 'l':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justifyLeft');
+                }
+                break;
+            case 'r':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justifyRight');
+                }
+                break;
+            case 'j':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('justiyFull');
+                }
+                break;
+            case 'i':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('italic');
+                }
+                break;
+            case 'b':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('bold');
+                }
+                break;
+            case 'u':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('underline');
+                }
+                break;
+            case 'k':
+                if (event.ctrlKey && !(event.altKey || event.shiftKey)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    document.execCommand('styleWithCSS', null, false);
+                    document.execCommand('strikethrough');
+                }
+                break;
+            case 'tab':
+                event.preventDefault();
+                event.stopPropagation();
+                (event.shiftKey) ? document.execCommand('outdent')  : document.execCommand('indent');
+                break;
+            default:
+                console.log(event, this);
+                break;
+        }
+    }
+},
+true);
 window.addEventListener('load', function() {
 	"use strict";
 	var html = $('html'),
@@ -1244,7 +1425,14 @@ window.addEventListener('load', function() {
 	]);
 	(function(dl) {
 		dl.addEventListener('click', function() {
-			this.href = document.querySelector('[contenteditable="true"]').dataURI();
+			var doc = document.querySelector('[contenteditable="true"]').toDocument();
+			var style = doc.createElement('link');
+			style.setAttribute('rel', 'stylesheet');
+			style.setAttribute('type', 'text/css');
+			style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+			doc.head.appendChild(style);
+
+			this.href = doc.dataURI();
 			return true;
 		});
 		dl.hidden = false;
@@ -1442,74 +1630,3 @@ NodeList.prototype.bootstrap = function() {
 	});
 	return this;
 };
-Element.prototype.DnD = function(sets) {
-	"use strict";
-	this.ondragover = function(event) {
-		this.classList.add('receiving');
-		return false;
-	};
-	this.ondragend = function(event) {
-		this.classList.remove('receiving');
-		return false;
-	};
-	this.ondrop = function(e) {
-		this.classList.remove('receiving');
-		e.preventDefault();
-		console.log(e);
-		if (e.dataTransfer.files.length) {
-			for (var i=0; i < e.dataTransfer.files.length; i++) {
-				var file = e.dataTransfer.files[i],
-					reader = new FileReader(),
-					progress = document.createElement('progress');
-				progress.min = 0;
-				progress.max = 1;
-				progress.value= 0;
-				progress.classList.add('uploading');
-				sets.appendChild(progress);
-				console.log(e, reader);
-				if (/image\/*/.test(file.type)) {
-					reader.readAsDataURL(file);
-				} else if (/text\/*/.test(file.type)) {
-					reader.readAsText(file);
-				}
-				reader.addEventListener('progress', function(event) {
-					if (event.lengthComputable) {
-						progress.value = event.loaded / event.total;
-					}
-				});
-				reader.onload = function(event) {
-					progress.parentElement.removeChild(progress);
-					console.log(event);
-					if (typeof sets !== 'undefined') {
-						switch (sets.tagName.toLowerCase()) {
-							case 'input':
-							case 'textarea':
-								sets.value = event.target.result;
-								break;
-
-							case 'img':
-								sets.src = event.target.result;
-								break;
-
-							default:
-								if (/image\/*/.test(file.type)) {
-									document.execCommand('insertimage', null, event.target.result);
-								} else if (/text\/*/.test(file.type)) {
-									sets.innerHTML = event.target.result;
-								}
-						}
-					}
-				};
-				reader.onerror = function(event) {
-					progress.parentElement.removeChild(progress);
-					console.error(event);
-				};
-			console.log(file);
-			}
-		}
-		return false;
-	};
-};
-HTMLElement.prototype.dataURI = function() {
-	return 'data:text/html,' + encodeURIComponent(this.innerHTML)
-}

@@ -88,7 +88,14 @@ window.addEventListener('load', function() {
 	]);
 	(function(dl) {
 		dl.addEventListener('click', function() {
-			this.href = document.querySelector('[contenteditable="true"]').dataURI();
+			var doc = document.querySelector('[contenteditable="true"]').toDocument();
+			var style = doc.createElement('link');
+			style.setAttribute('rel', 'stylesheet');
+			style.setAttribute('type', 'text/css');
+			style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+			doc.head.appendChild(style);
+
+			this.href = doc.dataURI();
 			return true;
 		});
 		dl.hidden = false;
@@ -286,74 +293,3 @@ NodeList.prototype.bootstrap = function() {
 	});
 	return this;
 };
-Element.prototype.DnD = function(sets) {
-	"use strict";
-	this.ondragover = function(event) {
-		this.classList.add('receiving');
-		return false;
-	};
-	this.ondragend = function(event) {
-		this.classList.remove('receiving');
-		return false;
-	};
-	this.ondrop = function(e) {
-		this.classList.remove('receiving');
-		e.preventDefault();
-		console.log(e);
-		if (e.dataTransfer.files.length) {
-			for (var i=0; i < e.dataTransfer.files.length; i++) {
-				var file = e.dataTransfer.files[i],
-					reader = new FileReader(),
-					progress = document.createElement('progress');
-				progress.min = 0;
-				progress.max = 1;
-				progress.value= 0;
-				progress.classList.add('uploading');
-				sets.appendChild(progress);
-				console.log(e, reader);
-				if (/image\/*/.test(file.type)) {
-					reader.readAsDataURL(file);
-				} else if (/text\/*/.test(file.type)) {
-					reader.readAsText(file);
-				}
-				reader.addEventListener('progress', function(event) {
-					if (event.lengthComputable) {
-						progress.value = event.loaded / event.total;
-					}
-				});
-				reader.onload = function(event) {
-					progress.parentElement.removeChild(progress);
-					console.log(event);
-					if (typeof sets !== 'undefined') {
-						switch (sets.tagName.toLowerCase()) {
-							case 'input':
-							case 'textarea':
-								sets.value = event.target.result;
-								break;
-
-							case 'img':
-								sets.src = event.target.result;
-								break;
-
-							default:
-								if (/image\/*/.test(file.type)) {
-									document.execCommand('insertimage', null, event.target.result);
-								} else if (/text\/*/.test(file.type)) {
-									sets.innerHTML = event.target.result;
-								}
-						}
-					}
-				};
-				reader.onerror = function(event) {
-					progress.parentElement.removeChild(progress);
-					console.error(event);
-				};
-			console.log(file);
-			}
-		}
-		return false;
-	};
-};
-HTMLElement.prototype.dataURI = function() {
-	return 'data:text/html,' + encodeURIComponent(this.innerHTML)
-}

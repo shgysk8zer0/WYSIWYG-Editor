@@ -1,0 +1,120 @@
+<h1>HTML5 WYSIWYG-Editor</h1>
+
+<blockquote>
+  <p>An all HTML, CSS, &amp; JavaScript HTML5 WYSIWYG Editor <br />
+<em>Uses <code>&lt;menu type="context"&gt;</code> and <code>contenteditable</code> to write HTML</em></p>
+</blockquote>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Firefox or Chrome (IE = :poop:)</li>
+<li><code>document.execCommand</code> support</li>
+<li>SVG, including <code>&lt;use&gt;</code></li>
+</ul>
+
+<h2>Features</h2>
+
+<ul>
+<li>WYSIWYG Editor written in HTML &amp; JavaScript using <a href="https://developer.mozilla.org/en-US/docs/Midas" title="Midas | MDN"><code>execCommand</code></a></li>
+<li>Offline access using <code>ApplicationCache</code></li>
+<li>Full-Screen editing</li>
+<li>Drag-n-Drop images to add them (<em>base64 encoded data-URI</em>)</li>
+<li>Drag-n-Drop HTML files to import</li>
+<li>Save and restore work using <code>localStorage</code></li>
+<li>Save work as file using <code>download</code> attribute</li>
+</ul>
+
+<h2>Keyboard Shortcuts</h2>
+
+<ul>
+<li><code>CTRL + a</code> &mdash; Select All</li>
+<li><code>CTRL + z</code> &mdash; Undo</li>
+<li><code>CTRL + y</code> &mdash; Redo</li>
+<li><code>CTRL + b</code> &mdash; Toggle Bold</li>
+<li><code>CTRL + i</code> &mdash; Toggle Italic</li>
+<li><code>CTRL + u</code> &mdash; Toggle Underline</li>
+<li><code>CTRL + k</code> &mdash; Toggle Strike-through (<em>Firefox Only</em>)</li>
+<li><code>CTRL + e</code> &mdash; Justify Center (<em>Firefox Only</em>)</li>
+<li><code>CTRL + l</code> &mdash; Justify Left (<em>Firefox Only</em>)</li>
+<li><code>CTRL + r</code> &mdash; Justify Right (<em>Firefox Only</em>)</li>
+<li><code>CTRL + j</code> &mdash; Justify Full (<em>Firefox Only</em>)</li>
+<li><code>tab</code> &mdash; Increase Indentation (Blockquote for paragraphs)</li>
+<li><code>SHIFT + tab</code> &mdash; Decrease Indentation</li>
+</ul>
+
+<h2>:coffee: :godmode: Contributing :godmode: :coffee:</h2>
+
+<h3>Helpful Tools</h3>
+
+<ul>
+<li><a href="https://atom.io/" title="Atom">GitHub Atom</a></li>
+<li><a href="https://www.mozilla.org/en-US/firefox/channel/#developer" title="Firefox Developer Edition">Firefox Developer Edition</a></li>
+<li><a href="http://www.myth.io/" title="Myth - CSS the way it was imagined">Myth</a> &mdash; <em>CSS preprocessor using pure CSS</em></li>
+<li><a href="https://nodejs.org/" title="Node.js">Node.js</a> &mdash; <em>Required for Myth</em></li>
+</ul>
+
+<h3>Installation</h3>
+
+<p><strong>From source using Git</strong> <br />
+1. Fork from <a href="https://github.com/shgysk8zer0/WYSIWYG-Editor">GitHub</a>
+<code>shell
+cd {/path/to/clone/to}
+git clone git://github.com/{your-username}/WYSIWYG-Editor.git
+cd WYSIWYG-Editor
+git submodule init
+git submodule update
+</code>
+2. Edit, stage, commit, push
+3. Send <a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/compare/">pull request</a></p>
+
+<h3>Editing Stylesheets</h3>
+
+<blockquote>
+  <p>Rather than use LESS, SASS, or whatever the "cool kids" are doing these
+days, I decided to use <code>@import</code> along with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" title="Using CSS variables - CSS |MDN">--css-vars</a></p>
+</blockquote>
+
+<p><strong>Requires</strong>
+* <a href="https://www.mozilla.org/en-US/firefox/channel/#developer" title="Firefox Developer Edition">Firefox</a>
+* <a href="http://www.myth.io/" title="Myth - CSS the way it was imagined">Myth</a>
+* <a href="https://nodejs.org/" title="Node.js">Node.js</a>
+* Comment out <code>stylesheets/css/style.css</code> and uncomment <code>stylesheets/css/import.css</code></p>
+
+<p><strong>To update <code>style.css</code></strong>
+<code>shell
+myth -c stylesheets/css/import.css stylesheets/css/style.css
+</code></p>
+
+<h3>Editing JavaScript</h3>
+
+<p>I have written a bash script for concatenating <code>.js</code> files. <br />
+You may either set executable permissions and run it from a GUI
+or execute it from command line with
+<code>shell
+bash scripts/combine.bash
+</code>
+You will have to comment out <code>scripts/combined.js</code> and uncomment
+all of the rest of the <code>&lt;script&gt;</code> tags.</p>
+
+<h2>Submodules used</h2>
+
+<ul>
+<li><a href="https://github.com/github/octicons">github/octicons</a></li>
+<li><a href="https://github.com/shgysk8zer0/core-css">shgysk8zer0/core-css</a></li>
+<li><a href="https://github.com/shgysk8zer0/std-js">shgysk8zer0/std-js</a></li>
+<li><a href="https://github.com/shgysk8zer0/fonts">shgysk8zer0/fonts</a></li>
+<li><a href="https://github.com/shgysk8zer0/cursors">shgysk8zer0/cursors</a></li>
+</ul>
+
+<h2>Contact</h2>
+
+<ul>
+<li><a href="https://github.com/shgysk8zer0/WYSIWYG-Editor">:octocat: GitHub</a></li>
+<li><a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/new">:bug: Report Issues, request features, etc</a></li>
+<li><a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/blob/master/README.md">:page<em>facing</em>up: View README</a></li>
+<li><a href="https://shgysk8zer0.github.io/WYSIWYG-Editor">:book: View wiki</a></li>
+<li><a href="http://wysiwyg.chriszuber.com/">:link: Live Demo</a></li>
+<li><a href="https://chriszuber.com">:globe<em>with</em>meridians: Developer website</a></li>
+<li><a href="mailto:shgysk8zer0@gmail.com">:e-mail: Email Developer</a></li>
+</ul>

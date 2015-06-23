@@ -1,5 +1,5 @@
 main {
-	flex: 0 1 var(--main-width);
+	flex: 1 0 var(--main-width);
 	background: var(--main-bg);
 	padding: 1rem 3rem;
 	box-shadow: 0.2rem 0.2rem 0 gray, 0.4rem 0.4rem 0 black, -0.4rem 0.4rem 1rem black;
@@ -7,11 +7,10 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 69vh;
 	overflow-y: auto;
 }
 main > [contenteditable="true"] {
-	flex: 0 0 100%;
+	flex: 0 1 61vh;
 	overflow: auto;
 	width: 80%;
 	padding: 0 1em;
@@ -33,6 +32,7 @@ main:fullscreen {
 }
 main:-moz-full-screen > [contenteditable="true"] {
 	max-height: 90vh;
+	flex: 1 0 100%;
 	padding: 0 2rem;
 	margin: 0;
 	background: var(--main-bg);
@@ -41,6 +41,7 @@ main:-moz-full-screen > [contenteditable="true"] {
 }
 main:fullscreen > [contenteditable="true"] {
 	max-height: 90vh;
+	flex: 1 0 100%;
 	padding: 0 2rem;
 	margin: 0;
 	background: var(--main-bg);

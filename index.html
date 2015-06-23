@@ -12,33 +12,39 @@
 		<meta name="author" content="Chris Zuber">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
 		<!--==============================Schema.org=================================-->
-		<meta itemprop="url" content="https://chriszuber.com/demos/wysiwyg-editor/">
+		<meta itemprop="name" content="HTML5 WYSIWYG Editor">
+		<meta itemprop="url" content="http://wysiwyg.chriszuber.com/">
 		<meta itemprop="description" content="A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript">
 		<meta itemprop="keywords" content="HTML5, JavaScript, WYSIWYG">
-		<meta itemprop="image" content="https://chriszuber.com/demos/wysiwyg-editor/images/favicon-512.png">
+		<meta itemprop="image" content="http://wysiwyg.chriszuber.com/images/favicon-512.png">
 		<meta itemprop="applicationCategory" content="WYSIWYG, HTML, Developer Tools">
 		<meta itemprop="browserRequirements" content="HTML5 storage, SVG &lt;use&gt;, contenteditable">
-		<meta itemprop="screenshot" content="https://chriszuber.com/demos/wysiwyg-editor/images/screenshot.png">
+		<meta itemprop="screenshot" content="http://wysiwyg.chriszuber.com/images/screenshot.png">
+		<meta itemprop="installUrl" content="https://github.com/shgysk8zer0/WYSIWYG-Editor">
 		<!--======================Twitter meta tags==================================-->
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@shgysk8zer0">
 		<!--=====================Facebook meta tags==================================-->
 		<meta property="og:title" content="HTML5 WYSIWYG Editor">
 		<meta property="og:site_name" content="HTML5 WYSIWYG Editor">
-		<meta property="og:url" content="https://chriszuber.com/demos/wysiwyg-editor/">
+		<meta property="og:url" content="http://wysiwyg.chriszuber.com/">
 		<meta property="og:description" content="A WYSIWYG Editor for browsers and phones written in HTML5 and JavaScript">
-		<meta property="og:image" content="https://chriszuber.com/demos/wysiwyg-editor/images/screenshot.png">
-		<meta property="og:image:type" content="image/png" />
-		<meta property="og:image:width" content="1920" />
-		<meta property="og:image:height" content="1176" />
+		<meta property="og:image" content="http://wysiwyg.chriszuber.com/images/screenshot.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="1920">
+		<meta property="og:image:height" content="1176">
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="en_us">
 		<!--=========================================================================-->
-		<link rel="stylesheet" type="text/css" href="stylesheets/css/style.css" media="screen">
-		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/css/import.css" media="screen"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/css/style.css" media="screen"> -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/css/import.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="stylesheets/core-css/print.css" media="print">
 		<link rel="prefetch" href="images/combined.svg" type="image/svg+xml">
+		<!-- <link rel="import" href="components/header.html" type="text/html" name="Header"> -->
+		<!-- <link rel="import" href="components/footer.html" type="text/html" name="Footer"> -->
+		<!-- <link rel="import" href="components/README.html" type="text/html" name="README"> -->
 		<!-- <link rel="import" href="components/wysiwyg_menu.html" type="text/html" name="WYSIWYG Menu"> -->
+		<!-- <link rel="import" href="components/wysiwyg_toolbar.html" type="text/html" name="WYSIWYG Toolbar"> -->
 		<link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="favicon.ico">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
 		<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
@@ -55,8 +61,8 @@
 		<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="images/favicon-120.png">
 		<link rel="apple-touch-icon" type="image/png" sizes="152x152" href="images/favicon-152.png">
 		<link rel="manifest" href="manifest.json">
-		<script type="application/javascript" src="scripts/combined.js" async></script>
-		<!-- <script type="application/javascript" src="scripts/std-js/appcache_listener.js" async defer></script>
+		<!-- <script type="application/javascript" src="scripts/combined.js" async></script> -->
+		<script type="application/javascript" src="scripts/std-js/appcache_listener.js" async defer></script>
 		<script type="application/javascript" src="scripts/std-js/deprefixer.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/poly_modern.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/prototypes.js" async></script>
@@ -64,7 +70,8 @@
 		<script type="application/javascript" src="scripts/std-js/zq.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/functions.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/wysiwyg.js" async defer></script>
-		<script type="application/javascript" src="scripts/custom.js" async defer></script> -->
+		<script type="application/javascript" src="scripts/std-js/kbd_shortcuts.js" async></script>
+		<script type="application/javascript" src="scripts/custom.js" async defer></script>
 	</head>
 	<body class="flex row wrap">
 		<menu type="context" id="wysiwyg_menu">
@@ -96,6 +103,42 @@
 				<menuitem label="Pre-formatted Text" data-editor-command="inserthtml" data-selection-to="pre"></menuitem>
 				<menuitem label="Custom HTML" icon="images/octicons/svg/file-code.svg" data-editor-command="inserthtml" data-prompt="Enter the HTML to insert."></menuitem>
 			</menu>
+			<menu label="Background Color">
+				<menuitem label="Red" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22red%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="red" data-style-with-css></menuitem>
+				<menuitem label="Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22green%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="green" data-style-with-css></menuitem>
+				<menuitem label="Blue" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22blue%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="blue" data-style-with-css></menuitem>
+				<menuitem label="Cyan" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22cyan%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="cyan" data-style-with-css></menuitem>
+				<menuitem label="Magenta" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22magenta%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="magenta" data-style-with-css></menuitem>
+				<menuitem label="Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22yellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="yellow" data-style-with-css></menuitem>
+				<menuitem label="Orange" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22orange%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="orange" data-style-with-css></menuitem>
+				<menuitem label="Purple" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22purple%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="purple" data-style-with-css></menuitem>
+				<menuitem label="Pink" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22pink%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="pink" data-style-with-css></menuitem>
+				<menuitem label="Black" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="black" data-style-with-css></menuitem>
+				<menuitem label="White" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="white"></menuitem>
+				<menuitem label="White Smoke" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22whitesmoke%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="whitesmoke" data-style-with-css></menuitem>
+				<menuitem label="Azure" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22azure%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="azure" data-style-with-css></menuitem>
+				<menuitem label="Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="gray" data-style-with-css></menuitem>
+				<menuitem label="Dim Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22dimgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="dimgray" data-style-with-css></menuitem>
+				<menuitem label="Dark Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="darkgray" data-style-with-css></menuitem>
+				<menuitem label="Light Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lightgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="lightgray" data-style-with-css></menuitem>
+				<menuitem label="DarkSlateGray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkslategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="darkslategray" data-style-with-css></menuitem>
+				<menuitem label="Slate Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22slategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="slategray" data-style-with-css></menuitem>
+				<menuitem label="Ivory" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22ivory%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="ivory" data-style-with-css></menuitem>
+				<menuitem label="Snow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22snow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="snow" data-style-with-css></menuitem>
+				<menuitem label="Lavender" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lavender%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="lavender" data-style-with-css></menuitem>
+				<menuitem label="Aqua" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22aqua%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="aqua" data-style-with-css></menuitem>
+				<menuitem label="Navy" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22navy%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="navy" data-style-with-css></menuitem>
+				<menuitem label="Lime" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lime%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="lime" data-style-with-css></menuitem>
+				<menuitem label="Lime Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22limegreen%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="limegreen" data-style-with-css></menuitem>
+				<menuitem label="Coral" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22coral%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="coral" data-style-with-css></menuitem>
+				<menuitem label="Crimson" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22crimson%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="crimson" data-style-with-css></menuitem>
+				<menuitem label="Maroon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22maroon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="maroon" data-style-with-css></menuitem>
+				<menuitem label="Tomato" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22tomato%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="tomato" data-style-with-css></menuitem>
+				<menuitem label="Fuchsia" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22fuchsia%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="fuchsia" data-style-with-css></menuitem>
+				<menuitem label="Salmon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22salmon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="salmon" data-style-with-css></menuitem>
+				<menuitem label="Gold" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gold%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="gold" data-style-with-css></menuitem>
+				<menuitem label="Green-Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22greenyellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="greenyellow" data-style-with-css></menuitem>
+			</menu>
 			<menu label="Text Style">
 				<menu label="Font">
 					<menu label="Size">
@@ -103,51 +146,48 @@
 						<menuitem label="-" data-editor-command="decreasefontsize"></menuitem>
 					</menu>
 					<menu label="Font Family">
-						<menuitem label="Alice" data-editor-command="fontname" data-editor-value="Alice"></menuitem>
-						<menuitem label="Web Symbols" data-editor-command="fontname" data-editor-value="Web Symbols"></menuitem>
-						<menuitem label="Acme" data-editor-command="fontname" data-editor-value="Acme"></menuitem>
-						<menuitem label="PressStart" data-editor-command="fontname" data-editor-value="PressStart"></menuitem>
-						<menuitem label="GNUTypewriter" data-editor-command="fontname" data-editor-value="GNUTypewriter"></menuitem>
-						<menuitem label="Comfortaa" data-editor-command="fontname" data-editor-value="Comfortaa"></menuitem>
-						<menuitem label="Chancery" data-editor-command="fontname" data-editor-value="Chancery"></menuitem>
-						<menuitem label="Intuitive" data-editor-command="fontname" data-editor-value="Intuitive"></menuitem>
-						<menuitem label="Other?" data-editor-command="fontname" data-prompt="What font would you like to use?"></menuitem>
+						<menuitem label="Alice" data-editor-command="fontname" data-editor-value="Alice" data-style-with-css></menuitem>
+						<menuitem label="Acme" data-editor-command="fontname" data-editor-value="Acme" data-style-with-css></menuitem>
+						<menuitem label="PressStart" data-editor-command="fontname" data-editor-value="PressStart" data-style-with-css></menuitem>
+						<menuitem label="Ubuntu" data-editor-command="fontname" data-editor-value="Ubuntu" data-style-with-css></menuitem>
+						<menuitem label="Open Sans" data-editor-command="fontname" data-editor-value="Open Sans" data-style-with-css></menuitem>
+						<menuitem label="Droid Serif" data-editor-command="fontname" data-editor-value="Droid Serif" data-style-with-css></menuitem>
 					</menu>
 					<menu label="Font Color">
-						<menuitem label="Red" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22red%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="red" ></menuitem>
-						<menuitem label="Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22green%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="green" ></menuitem>
-						<menuitem label="Blue" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22blue%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="blue" ></menuitem>
-						<menuitem label="Cyan" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22cyan%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="cyan" ></menuitem>
-						<menuitem label="Magenta" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22magenta%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="magenta" ></menuitem>
-						<menuitem label="Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22yellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="yellow" ></menuitem>
-						<menuitem label="Orange" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22orange%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="orange" ></menuitem>
-						<menuitem label="Purple" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22purple%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="purple" ></menuitem>
-						<menuitem label="Pink" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22pink%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="pink" ></menuitem>
-						<menuitem label="Black" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="black" ></menuitem>
-						<menuitem label="White" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="white" ></menuitem>
-						<menuitem label="White Smoke" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22whitesmoke%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="whitesmoke" ></menuitem>
-						<menuitem label="Azure" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22azure%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="azure" ></menuitem>
-						<menuitem label="Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="gray" ></menuitem>
-						<menuitem label="Dim Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22dimgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="dimgray" ></menuitem>
-						<menuitem label="Dark Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="darkgray" ></menuitem>
-						<menuitem label="Light Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lightgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lightgray" ></menuitem>
-						<menuitem label="DarkSlateGray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkslategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="darkslategray" ></menuitem>
-						<menuitem label="Slate Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22slategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="slategray" ></menuitem>
-						<menuitem label="Ivory" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22ivory%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="ivory" ></menuitem>
-						<menuitem label="Snow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22snow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="snow" ></menuitem>
-						<menuitem label="Lavender" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lavender%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lavender" ></menuitem>
-						<menuitem label="Aqua" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22aqua%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="aqua" ></menuitem>
-						<menuitem label="Navy" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22navy%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="navy" ></menuitem>
-						<menuitem label="Lime" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lime%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lime" ></menuitem>
-						<menuitem label="Lime Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22limegreen%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="limegreen" ></menuitem>
+						<menuitem label="Red" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22red%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="red"  data-style-with-css></menuitem>
+						<menuitem label="Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22green%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="green"  data-style-with-css></menuitem>
+						<menuitem label="Blue" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22blue%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="blue"  data-style-with-css></menuitem>
+						<menuitem label="Cyan" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22cyan%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="cyan"  data-style-with-css></menuitem>
+						<menuitem label="Magenta" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22magenta%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="magenta"  data-style-with-css></menuitem>
+						<menuitem label="Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22yellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="yellow"  data-style-with-css></menuitem>
+						<menuitem label="Orange" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22orange%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="orange"  data-style-with-css></menuitem>
+						<menuitem label="Purple" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22purple%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="purple"  data-style-with-css></menuitem>
+						<menuitem label="Pink" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22pink%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="pink"  data-style-with-css></menuitem>
+						<menuitem label="Black" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="black"  data-style-with-css></menuitem>
+						<menuitem label="White" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="white"  data-style-with-css></menuitem>
+						<menuitem label="White Smoke" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22whitesmoke%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="whitesmoke"  data-style-with-css></menuitem>
+						<menuitem label="Azure" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22azure%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="azure"  data-style-with-css></menuitem>
+						<menuitem label="Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="gray"  data-style-with-css></menuitem>
+						<menuitem label="Dim Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22dimgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="dimgray"  data-style-with-css></menuitem>
+						<menuitem label="Dark Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="darkgray"  data-style-with-css></menuitem>
+						<menuitem label="Light Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lightgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lightgray"  data-style-with-css></menuitem>
+						<menuitem label="DarkSlateGray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkslategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="darkslategray"  data-style-with-css></menuitem>
+						<menuitem label="Slate Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22slategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="slategray"  data-style-with-css></menuitem>
+						<menuitem label="Ivory" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22ivory%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="ivory"  data-style-with-css></menuitem>
+						<menuitem label="Snow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22snow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="snow"  data-style-with-css></menuitem>
+						<menuitem label="Lavender" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lavender%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lavender"  data-style-with-css></menuitem>
+						<menuitem label="Aqua" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22aqua%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="aqua"  data-style-with-css></menuitem>
+						<menuitem label="Navy" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22navy%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="navy"  data-style-with-css></menuitem>
+						<menuitem label="Lime" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lime%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lime"  data-style-with-css></menuitem>
+						<menuitem label="Lime Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22limegreen%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="limegreen"  data-style-with-css></menuitem>
 						<menuitem label="Coral" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22coral%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="coral" ></menuitem>
-						<menuitem label="Crimson" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22crimson%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="crimson" ></menuitem>
-						<menuitem label="Maroon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22maroon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="maroon" ></menuitem>
-						<menuitem label="Tomato" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22tomato%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="tomato" ></menuitem>
-						<menuitem label="Fuchsia" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22fuchsia%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="fuchsia" ></menuitem>
-						<menuitem label="Salmon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22salmon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="salmon" ></menuitem>
-						<menuitem label="Gold" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gold%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="gold" ></menuitem>
-						<menuitem label="Green-Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22greenyellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="greenyellow" ></menuitem>
+						<menuitem label="Crimson" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22crimson%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="crimson"  data-style-with-css></menuitem>
+						<menuitem label="Maroon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22maroon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="maroon"  data-style-with-css></menuitem>
+						<menuitem label="Tomato" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22tomato%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="tomato" data-style-with-css ></menuitem>
+						<menuitem label="Fuchsia" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22fuchsia%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="fuchsia"  data-style-with-css></menuitem>
+						<menuitem label="Salmon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22salmon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="salmon"  data-style-with-css></menuitem>
+						<menuitem label="Gold" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gold%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="gold"  data-style-with-css></menuitem>
+						<menuitem label="Green-Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22greenyellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="greenyellow"  data-style-with-css></menuitem>
 					</menu>
 				</menu>
 				<menuitem label="Paragraph" icon="images/octicons/svg/file-text.svg" data-editor-command="insertparagraph"></menuitem>
@@ -284,24 +324,24 @@
 				<button type="button" title="New paragraph" data-editor-command="insertparagraph">
 					<svg><use xlink:href="images/combined.svg#file-text"/></svg>
 				</button>
-				<button type="buton" title="Bold" data-editor-command="bold">
+				<button type="button" title="Toggle Bold" data-editor-command="bold">
 					<b>B</b>
 				</button>
-				<button type="button" title="Italic" data-editor-command="italic">
+				<button type="button" title="Toggle Italic" data-editor-command="italic">
 					<i>I</i>
 				</button>
-				<button type="button" title="Underline" data-editor-command="underline">
+				<button type="button" title="Toggle Underline" data-editor-command="underline">
 					<u>U</u>
 				</button>
-				<button type="button" title="Strikethrough" data-editor-command="strikethrough">
+				<button type="button" title="Toggle Strikethrough" data-editor-command="strikethrough">
 					<strike>S</strike>
 				</button>
-				<!-- <button type="button" title="Subscript" data-editor-command="subscript">
-					<sub>sub</sub>
+				<button type="button" title="Subscript" data-editor-command="subscript">
+					T<sub>x</sub>
 				</button>
 				<button type="button" title="Superscript" data-editor-command="superscript">
-					<sup>sup</sup>
-				</button> -->
+					T<sup>x</sup>
+				</button>
 				<button type="button" title="Blockquote" data-editor-command="formatblock" data-editor-value="BLOCKQUOTE">
 					<svg><use xlink:href="images/combined.svg#quote"/></svg>
 				</button>
@@ -312,14 +352,14 @@
 				<button type="button" title="Make Link" data-editor-command="createlink" data-prompt="Enter link location">
 					<svg><use xlink:href="images/combined.svg#link"/></svg>
 				</button>
-				<button type="button" title="Insert Code" data-editor-command="inserthtml" data-selection-to="code">
-					<svg><use xlink:href="images/combined.svg#code"/></svg>
-				</button>
 				<button type="button" title="Make Ordered List" data-editor-command="insertorderedlist">
 					<svg><use xlink:href="images/combined.svg#list-ordered"/></svg>
 				</button>
 				<button type="button" title="Make Unordered List" data-editor-command="insertunorderedlist">
 					<svg><use xlink:href="images/combined.svg#list-unordered"/></svg>
+				</button>
+				<button type="button" title="Insert Code" data-editor-command="inserthtml" data-selection-to="code">
+					<svg><use xlink:href="images/combined.svg#code"/></svg>
 				</button>
 				<span class="spacer"></span>
 				<button type="button" title="Insert Horizontal Rule" data-editor-command="inserthorizontalrule">
@@ -342,31 +382,31 @@
 				<a role="button" title="Download HTML" href="" download="index.html" hidden>
 					<svg><use xlink:href="images/combined.svg#cloud-download"/></svg>
 				</a>
-				<button type="button" title="Enter Full-Screen" data-fullscreen="main">
+				<button type="button" title="Toggle Full-Screen" data-fullscreen="main">
 					<svg><use xlink:href="images/combined.svg#screen-full"/></svg>
 				</button>
 			</menu>
-			<div contextmenu="wysiwyg_menu" contenteditable="true" data-dropzone="body"></div>
+			<section contextmenu="wysiwyg_menu" contenteditable="true" data-dropzone="body"></section>
 			<noscript>JavaScript is absolutely required for anything other than writing plain text</noscript>
 		</main>
 		<footer class="flex row">
 			<a href="https://github.com/shgysk8zer0" target="_blank" title="Developer's GitHub Page" class="icon">
 				<svg width="40" height="40"><use xlink:href="images/combined.svg#mark-github"/></svg>
 			</a>
-			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor" target="_blank" title="Fork on GitHub" itemprop="installUrl" class="icon">
+			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor" target="_blank" title="Fork on GitHub" class="icon">
 				<svg width="40" height="40"><use xlink:href="images/combined.svg#repo"/></svg>
 			</a>
-			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/new" target="_blank" title="Report Issue" class="icon">
-				<svg width="40" height="40"><use xlink:href="images/combined.svg#issue-opened"></svg>
+			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/issues/" target="_blank" title="Report Issue" class="icon">
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#issue-opened"/></svg>
 			</a>
 			<a href="https://github.com/shgysk8zer0/WYSIWYG-Editor/blob/master/README.md" target="_blank" title="View README" class="icon">
-				<svg width="40" height="40"><use xlink:href="images/combined.svg#question"></svg>
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#question"/></svg>
 			</a>
 			<a href="mailto:shgysk8zer0@gmail.com" title="Email Developer" class="icon">
-				<svg width="40" height="40"><use xlink:href="images/combined.svg#mail"></svg>
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#mail"/></svg>
 			</a>
-			<button type="button" class="icon" title="Install Firefox Web App" data-moz-install="https://chriszuber.com/demos/wysiwyg-editor/manifest.webapp" hidden>
-				<svg width="40" height="40"><use xlink:href="images/combined.svg#package"></svg>
+			<button type="button" class="icon" title="Install Firefox Web App" data-moz-install="/manifest.webapp" hidden>
+				<svg width="40" height="40"><use xlink:href="images/combined.svg#package"/></svg>
 			</button>
 		</footer>
 	</body>
