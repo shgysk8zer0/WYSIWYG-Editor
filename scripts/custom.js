@@ -285,7 +285,9 @@ NodeList.prototype.bootstrap = function() {
 			var link = document.querySelector('link[rel="import"][name="' + el.dataset.import + '"]');
 			var nodes = link.import.body.childNodes;
 			for (var i = 0; i < nodes.length; i++) {
-				el.insertBefore(nodes[i], el.firstChild);
+				if (nodes[i].nodeType === 1) {
+					el.insertBefore(nodes[i], el.firstChild);
+				}
 			}
 		});
 		node.query('[data-download-html]').forEach(function(el) {
