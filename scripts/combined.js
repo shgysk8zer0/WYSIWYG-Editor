@@ -1632,6 +1632,21 @@ NodeList.prototype.bootstrap = function() {
 				el.insertBefore(nodes[i], el.firstChild);
 			}
 		});
+		node.query('[data-download-html]').forEach(function(el) {
+			el.hidden = false;
+			el.addEventListener('click', function(event) {
+				if (('dataset' in this) && this.dataset.hasOwnProperty('downloadHtml')) {
+					var doc = document.querySelector(this.dataset.downloadHtml).toDocument();
+					var style = doc.createElement('link');
+					style.setAttribute('rel', 'stylesheet');
+					style.setAttribute('type', 'text/css');
+					style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Acme|Ubuntu|Press+Start+2P|Alice|Comfortaa|Open+Sans|Droid+Serif');
+					doc.head.appendChild(style);
+
+					this.href = doc.dataURI();
+				}
+			}.bind(el));
+		})
 	});
 	return this;
 };
