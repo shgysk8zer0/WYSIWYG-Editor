@@ -4,6 +4,8 @@
 /*.crx
 /patches/
 *.patch
+*.orig
+*.remote
 #################
 ## Eclipse
 #################
