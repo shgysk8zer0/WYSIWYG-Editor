@@ -61,12 +61,6 @@ window.addEventListener('load', function() {
 					}
 					break;
 
-				case 'data-import':
-					if (this.target.hasAttribute('data-import')) {
-						this.target.HTMLimport();
-					}
-					break;
-
 				case 'data-dropzone':
 					document.querySelector(this.target.data('dropzone')).DnD(this.target);
 					break;
@@ -86,7 +80,7 @@ window.addEventListener('load', function() {
 		'data-dropzone',
 		'data-import'
 	]);
-	(function(dl) {
+	/*(function(dl) {
 		dl.addEventListener('click', function() {
 			var doc = document.querySelector('[contenteditable="true"]').toDocument();
 			var style = doc.createElement('link');
@@ -99,7 +93,7 @@ window.addEventListener('load', function() {
 			return true;
 		});
 		dl.hidden = false;
-	})(document.querySelector('a[download="index.html"]'));
+	})(document.querySelector('a[download="index.html"]'));*/
 	(function(btn) {
 		if ((typeof btn !== 'undefined') && ('mozApps' in navigator)) {
 			var url = new URL(btn.dataset.mozInstall, document.baseURI);
@@ -216,9 +210,6 @@ NodeList.prototype.bootstrap = function() {
 				document.querySelector(this.data('scroll-to')).scrollIntoView();
 			});
 		});
-		node.query('[data-import]').forEach(function(el) {
-			el.HTMLimport();
-		});
 		node.query('[data-close]').forEach(function(el) {
 			el.addEventListener('click', function() {
 				document.querySelector(this.data('close')).close();
@@ -289,6 +280,13 @@ NodeList.prototype.bootstrap = function() {
 					remove.parentElement.removeChild(remove);
 				});
 			});
+		});
+		node.query('[data-import]').forEach(function(el) {
+			var link = document.querySelector('link[rel="import"][name="' + el.dataset.import + '"]');
+			var nodes = link.import.body.childNodes;
+			for (var i = 0; i < nodes.length; i++) {
+				el.insertBefore(nodes[i], el.firstChild);
+			}
 		});
 	});
 	return this;
