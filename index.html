@@ -36,15 +36,15 @@
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="en_us">
 		<!--=========================================================================-->
-		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/css/style.css" media="screen"> -->
-		<link rel="stylesheet" type="text/css" href="stylesheets/css/import.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/css/style.css" media="screen">
+		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/css/import.css" media="screen"> -->
 		<link rel="stylesheet" type="text/css" href="stylesheets/core-css/print.css" media="print">
 		<link rel="prefetch" href="images/combined.svg" type="image/svg+xml">
 		<!-- <link rel="import" href="components/header.html" type="text/html" name="Header"> -->
 		<!-- <link rel="import" href="components/footer.html" type="text/html" name="Footer"> -->
 		<!-- <link rel="import" href="components/README.html" type="text/html" name="README"> -->
-		<!-- <link rel="import" href="components/wysiwyg_menu.html" type="text/html" name="WYSIWYG Menu"> -->
-		<!-- <link rel="import" href="components/wysiwyg_toolbar.html" type="text/html" name="WYSIWYG Toolbar"> -->
+		<link rel="import" href="components/wysiwyg_menu.html" type="text/html" name="WYSIWYG Menu">
+		<link rel="import" href="components/wysiwyg_toolbar.html" type="text/html" name="WYSIWYG Toolbar">
 		<link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="favicon.ico">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
 		<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
@@ -61,257 +61,20 @@
 		<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="images/favicon-120.png">
 		<link rel="apple-touch-icon" type="image/png" sizes="152x152" href="images/favicon-152.png">
 		<link rel="manifest" href="manifest.json">
-		<!-- <script type="application/javascript" src="scripts/combined.js" async></script> -->
-		<script type="application/javascript" src="scripts/std-js/appcache_listener.js" async defer></script>
+		<script type="application/javascript" src="scripts/combined.js" async></script>
+		<!-- <script type="application/javascript" src="scripts/std-js/appcache_listener.js" async defer></script>
 		<script type="application/javascript" src="scripts/std-js/deprefixer.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/poly_modern.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/prototypes.js" async></script>
+		<script type="application/javascript" src="scripts/std-js/polyfills/htmlimport.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/support_test.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/zq.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/functions.js" async></script>
 		<script type="application/javascript" src="scripts/std-js/wysiwyg.js" async defer></script>
 		<script type="application/javascript" src="scripts/std-js/kbd_shortcuts.js" async></script>
-		<script type="application/javascript" src="scripts/custom.js" async defer></script>
+		<script type="application/javascript" src="scripts/custom.js" async defer></script> -->
 	</head>
-	<body class="flex row wrap">
-		<menu type="context" id="wysiwyg_menu">
-			<!--https://developer.mozilla.org/en-US/docs/Midas-->
-			<menu label="Attributes">
-				<menuitem label="Add Class"></menuitem>
-				<menuitem label="Remove Class"></menuitem>
-				<menuitem label="Set Attribute"></menuitem>
-				<menuitem label="Remove Attribute"></menuitem>
-			</menu>
-			<menu label="Create">
-				<menu label="Headings">
-					<menuitem label="H1" data-editor-command="heading" data-editor-value="H1"></menuitem>
-					<menuitem label="H2" data-editor-command="heading" data-editor-value="H2"></menuitem>
-					<menuitem label="H3" data-editor-command="heading" data-editor-value="H3"></menuitem>
-					<menuitem label="H4" data-editor-command="heading" data-editor-value="H4"></menuitem>
-					<menuitem label="H5" data-editor-command="heading" data-editor-value="H5"></menuitem>
-					<menuitem label="H6" data-editor-command="heading" data-editor-value="H6"></menuitem>
-				</menu>
-				<menu label="List">
-					<menuitem label="Unordered" icon="images/octicons/svg/list-unordered.svg" data-editor-command="insertunorderedlist"></menuitem>
-					<menuitem label="Ordered" icon="images/octicons/svg/list-ordered.svg" data-editor-command="insertorderedlist"></menuitem>
-				</menu>
-				<menuitem label="Link" icon="images/octicons/svg/link.svg" data-editor-command="createlink" data-prompt="Enter link location"></menuitem>
-				<menuitem label="Image" icon="images/octicons/svg/file-media.svg" data-editor-command="insertimage" data-prompt="Enter image location"></menuitem>
-				<menuitem label="Figure" data-editor-command="inserthtml" data-selection-to="figure"></menuitem>
-				<menuitem label="Figure Caption" data-editor-command="inserthtml" data-selection-to="figcaption"></menuitem>
-				<menuitem label="Code" icon="images/octicons/svg/code.svg" data-editor-command="inserthtml" data-selection-to="code"></menuitem>
-				<menuitem label="Pre-formatted Text" data-editor-command="inserthtml" data-selection-to="pre"></menuitem>
-				<menuitem label="Custom HTML" icon="images/octicons/svg/file-code.svg" data-editor-command="inserthtml" data-prompt="Enter the HTML to insert."></menuitem>
-			</menu>
-			<menu label="Background Color">
-				<menuitem label="Red" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22red%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="red" data-style-with-css></menuitem>
-				<menuitem label="Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22green%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="green" data-style-with-css></menuitem>
-				<menuitem label="Blue" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22blue%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="blue" data-style-with-css></menuitem>
-				<menuitem label="Cyan" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22cyan%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="cyan" data-style-with-css></menuitem>
-				<menuitem label="Magenta" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22magenta%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="magenta" data-style-with-css></menuitem>
-				<menuitem label="Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22yellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="yellow" data-style-with-css></menuitem>
-				<menuitem label="Orange" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22orange%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="orange" data-style-with-css></menuitem>
-				<menuitem label="Purple" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22purple%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="purple" data-style-with-css></menuitem>
-				<menuitem label="Pink" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22pink%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="pink" data-style-with-css></menuitem>
-				<menuitem label="Black" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="black" data-style-with-css></menuitem>
-				<menuitem label="White" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="white"></menuitem>
-				<menuitem label="White Smoke" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22whitesmoke%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="whitesmoke" data-style-with-css></menuitem>
-				<menuitem label="Azure" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22azure%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="azure" data-style-with-css></menuitem>
-				<menuitem label="Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="gray" data-style-with-css></menuitem>
-				<menuitem label="Dim Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22dimgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="dimgray" data-style-with-css></menuitem>
-				<menuitem label="Dark Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="darkgray" data-style-with-css></menuitem>
-				<menuitem label="Light Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lightgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="lightgray" data-style-with-css></menuitem>
-				<menuitem label="DarkSlateGray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkslategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="darkslategray" data-style-with-css></menuitem>
-				<menuitem label="Slate Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22slategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="slategray" data-style-with-css></menuitem>
-				<menuitem label="Ivory" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22ivory%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="ivory" data-style-with-css></menuitem>
-				<menuitem label="Snow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22snow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="snow" data-style-with-css></menuitem>
-				<menuitem label="Lavender" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lavender%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="lavender" data-style-with-css></menuitem>
-				<menuitem label="Aqua" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22aqua%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="aqua" data-style-with-css></menuitem>
-				<menuitem label="Navy" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22navy%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="navy" data-style-with-css></menuitem>
-				<menuitem label="Lime" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lime%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="lime" data-style-with-css></menuitem>
-				<menuitem label="Lime Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22limegreen%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="limegreen" data-style-with-css></menuitem>
-				<menuitem label="Coral" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22coral%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="coral" data-style-with-css></menuitem>
-				<menuitem label="Crimson" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22crimson%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="crimson" data-style-with-css></menuitem>
-				<menuitem label="Maroon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22maroon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="maroon" data-style-with-css></menuitem>
-				<menuitem label="Tomato" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22tomato%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="tomato" data-style-with-css></menuitem>
-				<menuitem label="Fuchsia" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22fuchsia%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="fuchsia" data-style-with-css></menuitem>
-				<menuitem label="Salmon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22salmon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="salmon" data-style-with-css></menuitem>
-				<menuitem label="Gold" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gold%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="gold" data-style-with-css></menuitem>
-				<menuitem label="Green-Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22greenyellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="backcolor" data-editor-value="greenyellow" data-style-with-css></menuitem>
-			</menu>
-			<menu label="Text Style">
-				<menu label="Font">
-					<menu label="Size">
-						<menuitem label="+" data-editor-command="increasefontsize"></menuitem>
-						<menuitem label="-" data-editor-command="decreasefontsize"></menuitem>
-					</menu>
-					<menu label="Font Family">
-						<menuitem label="Alice" data-editor-command="fontname" data-editor-value="Alice" data-style-with-css></menuitem>
-						<menuitem label="Acme" data-editor-command="fontname" data-editor-value="Acme" data-style-with-css></menuitem>
-						<menuitem label="PressStart" data-editor-command="fontname" data-editor-value="PressStart" data-style-with-css></menuitem>
-						<menuitem label="Ubuntu" data-editor-command="fontname" data-editor-value="Ubuntu" data-style-with-css></menuitem>
-						<menuitem label="Open Sans" data-editor-command="fontname" data-editor-value="Open Sans" data-style-with-css></menuitem>
-						<menuitem label="Droid Serif" data-editor-command="fontname" data-editor-value="Droid Serif" data-style-with-css></menuitem>
-					</menu>
-					<menu label="Font Color">
-						<menuitem label="Red" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22red%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="red"  data-style-with-css></menuitem>
-						<menuitem label="Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22green%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="green"  data-style-with-css></menuitem>
-						<menuitem label="Blue" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22blue%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="blue"  data-style-with-css></menuitem>
-						<menuitem label="Cyan" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22cyan%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="cyan"  data-style-with-css></menuitem>
-						<menuitem label="Magenta" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22magenta%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="magenta"  data-style-with-css></menuitem>
-						<menuitem label="Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22yellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="yellow"  data-style-with-css></menuitem>
-						<menuitem label="Orange" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22orange%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="orange"  data-style-with-css></menuitem>
-						<menuitem label="Purple" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22purple%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="purple"  data-style-with-css></menuitem>
-						<menuitem label="Pink" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22pink%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="pink"  data-style-with-css></menuitem>
-						<menuitem label="Black" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="black"  data-style-with-css></menuitem>
-						<menuitem label="White" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="white"  data-style-with-css></menuitem>
-						<menuitem label="White Smoke" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22whitesmoke%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="whitesmoke"  data-style-with-css></menuitem>
-						<menuitem label="Azure" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22azure%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="azure"  data-style-with-css></menuitem>
-						<menuitem label="Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="gray"  data-style-with-css></menuitem>
-						<menuitem label="Dim Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22dimgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="dimgray"  data-style-with-css></menuitem>
-						<menuitem label="Dark Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="darkgray"  data-style-with-css></menuitem>
-						<menuitem label="Light Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lightgray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lightgray"  data-style-with-css></menuitem>
-						<menuitem label="DarkSlateGray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22darkslategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="darkslategray"  data-style-with-css></menuitem>
-						<menuitem label="Slate Gray" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22slategray%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="slategray"  data-style-with-css></menuitem>
-						<menuitem label="Ivory" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22ivory%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="ivory"  data-style-with-css></menuitem>
-						<menuitem label="Snow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22snow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="snow"  data-style-with-css></menuitem>
-						<menuitem label="Lavender" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lavender%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lavender"  data-style-with-css></menuitem>
-						<menuitem label="Aqua" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22aqua%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="aqua"  data-style-with-css></menuitem>
-						<menuitem label="Navy" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22navy%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="navy"  data-style-with-css></menuitem>
-						<menuitem label="Lime" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22lime%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="lime"  data-style-with-css></menuitem>
-						<menuitem label="Lime Green" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22limegreen%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="limegreen"  data-style-with-css></menuitem>
-						<menuitem label="Coral" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22coral%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="coral" ></menuitem>
-						<menuitem label="Crimson" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22crimson%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="crimson"  data-style-with-css></menuitem>
-						<menuitem label="Maroon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22maroon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="maroon"  data-style-with-css></menuitem>
-						<menuitem label="Tomato" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22tomato%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="tomato" data-style-with-css ></menuitem>
-						<menuitem label="Fuchsia" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22fuchsia%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="fuchsia"  data-style-with-css></menuitem>
-						<menuitem label="Salmon" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22salmon%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="salmon"  data-style-with-css></menuitem>
-						<menuitem label="Gold" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22gold%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="gold"  data-style-with-css></menuitem>
-						<menuitem label="Green-Yellow" icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22greenyellow%22%2F%3E%3C%2Fsvg%3E" data-editor-command="forecolor" data-editor-value="greenyellow"  data-style-with-css></menuitem>
-					</menu>
-				</menu>
-				<menuitem label="Paragraph" icon="images/octicons/svg/file-text.svg" data-editor-command="insertparagraph"></menuitem>
-				<menuitem label="Blockquote" icon="images/octicons/svg/quote.svg" data-editor-command="formatblock" data-editor-value="BLOCKQUOTE"></menuitem>
-				<menuitem label="Bold" data-editor-command="bold"></menuitem>
-				<menuitem label="Italics" data-editor-command="italic"></menuitem>
-				<menuitem label="Underline" data-editor-command="underline"></menuitem>
-				<menuitem label="Strike Through" data-editor-command="strikethrough"></menuitem>
-				<menuitem label="Big" data-editor-command="big"></menuitem>
-				<menuitem label="Small" data-editor-command="small"></menuitem>
-				<menuitem label="Superscript" data-editor-command="superscript"></menuitem>
-				<menuitem label="Subscript" data-editor-command="subscript"></menuitem>
-				<menu label="Other">
-					<menuitem label="Span/generic" data-editor-command="inserthtml" data-selection-to="span"></menuitem>
-					<menuitem label="Strong" data-editor-command="inserthtml" data-selection-to="strong"></menuitem>
-					<menuitem label="Emphasis" data-editor-command="inserthtml" data-selection-to="em"></menuitem>
-					<menuitem label="Deleted Text" data-editor-command="inserthtml" data-selection-to="del"></menuitem>
-					<menuitem label="Inserted Text" data-editor-command="inserthtml" data-selection-to="ins"></menuitem>
-					<menuitem label="Sample Text" data-editor-command="inserthtml" data-selection-to="samp"></menuitem>
-					<menuitem label="Keyboard" data-editor-command="inserthtml" data-selection-to="kbd"></menuitem>
-					<menuitem label="Variable" data-editor-command="inserthtml" data-selection-to="var"></menuitem>
-					<menuitem label="Quote" data-editor-command="inserthtml" data-selection-to="q"></menuitem>
-					<menuitem label="Citation" data-editor-command="inserthtml" data-selection-to="cite"></menuitem>
-					<menuitem label="Highlighted Text" data-editor-command="inserthtml" data-selection-to="mark"></menuitem>
-				</menu>
-			</menu>
-			<menu label="Indentation">
-				<menuitem label="Increase" icon="images/octicons/svg/move-right.svg" data-editor-command="indent"></menuitem>
-				<menuitem label="Decrease" icon="images/octicons/svg/move-left.svg" data-editor-command="outdent"></menuitem>
-			</menu>
-			<menu label="Justify">
-				<menuitem label="Center" data-editor-command="justifycenter"></menuitem>
-				<menuitem label="Left" icon="images/octicons/svg/jump-left.svg" data-editor-command="justifyleft"></menuitem>
-				<menuitem label="Right" icon="images/octicons/svg/jump-right.svg" data-editor-command="justifyright"></menuitem>
-				<menuitem label="Full" data-editor-command="justifyfull"></menuitem>
-			</menu>
-			<menu label="Special Characters">
-				<menu label="Punctuation">
-					<menuitem label="&ldquo;" data-editor-command="inserthtml" data-editor-value="&ldquo;"></menuitem>
-					<menuitem label="&rdquo;" data-editor-command="inserthtml" data-editor-value="&rdquo;"></menuitem>
-					<menuitem label="&lsquo;" data-editor-command="inserthtml" data-editor-value="&lsquo;"></menuitem>
-					<menuitem label="&rsquo;" data-editor-command="inserthtml" data-editor-value="&rsquo;"></menuitem>
-					<menuitem label="&laquo;" data-editor-command="inserthtml" data-editor-value="&laquo;"></menuitem>
-					<menuitem label="&raquo;" data-editor-command="inserthtml" data-editor-value="&raquo;"></menuitem>
-					<menuitem label="&sbquo;" data-editor-command="inserthtml" data-editor-value="&sbquo;"></menuitem>
-					<menuitem label="&iquest;" data-editor-command="inserthtml" data-editor-value="&iquest;"></menuitem>
-					<menuitem label="&ndash;" data-editor-command="inserthtml" data-editor-value="&ndash;"></menuitem>
-					<menuitem label="&mdash;" data-editor-command="inserthtml" data-editor-value="&mdash;"></menuitem>
-					<menuitem label="&#133;" data-editor-command="inserthtml" data-editor-value="&#133;"></menuitem>
-					<menuitem label="&dagger;" data-editor-command="inserthtml" data-editor-value="&dagger;"></menuitem>
-					<menuitem label="&Dagger;" data-editor-command="inserthtml" data-editor-value="&Dagger;"></menuitem>
-				</menu>
-				<menu label="Legal">
-					<menuitem label="&copy;" data-editor-command="inserthtml" data-editor-value="&copy;"></menuitem>
-					<menuitem label="&trade;" data-editor-command="inserthtml" data-editor-value="&trade;"></menuitem>
-					<menuitem label="&reg;" data-editor-command="inserthtml" data-editor-value="&reg;"></menuitem>
-				</menu>
-				<menu label="Currency">
-					<menuitem label="&curren;" data-editor-command="inserthtml" data-editor-value="&curren;"></menuitem>
-					<menuitem label="&cent;" data-editor-command="inserthtml" data-editor-value="&cent;"></menuitem>
-					<menuitem label="&pound;" data-editor-command="inserthtml" data-editor-value="&pound;"></menuitem>
-					<menuitem label="&yen;" data-editor-command="inserthtml" data-editor-value="&yen;"></menuitem>
-					<menuitem label="&euro;" data-editor-command="inserthtml" data-editor-value="&euro;"></menuitem>
-				</menu>
-				<menu label="Fractions">
-					<menuitem label="&frac12;" data-editor-command="inserthtml" data-editor-value="&frac12;"></menuitem>
-					<menuitem label="&frac13;" data-editor-command="inserthtml" data-editor-value="&frac13;"></menuitem>
-					<menuitem label="&frac14;" data-editor-command="inserthtml" data-editor-value="&frac14;"></menuitem>
-					<menuitem label="&frac18;" data-editor-command="inserthtml" data-editor-value="&frac18;"></menuitem>
-					<menuitem label="&frac38;" data-editor-command="inserthtml" data-editor-value="&frac38;"></menuitem>
-					<menuitem label="&frac58;" data-editor-command="inserthtml" data-editor-value="&frac58;"></menuitem>
-					<menuitem label="&frac34;" data-editor-command="inserthtml" data-editor-value="&frac34;"></menuitem>
-					<menuitem label="&frac78;" data-editor-command="inserthtml" data-editor-value="&frac78;"></menuitem>
-				</menu>
-				<menu label="Operators">
-					<menuitem label="&plusmn;" data-editor-command="inserthtml" data-editor-value="&plusmn;"></menuitem>
-					<menuitem label="&times;" data-editor-command="inserthtml" data-editor-value="&times;"></menuitem>
-					<menuitem label="&#8729;" data-editor-command="inserthtml" data-editor-value="&#8729;"></menuitem>
-					<menuitem label="&divide;" data-editor-command="inserthtml" data-editor-value="&divide;"></menuitem>
-					<menuitem label="&#8730;" data-editor-command="inserthtml" data-editor-value="&#8730;"></menuitem>
-					<menuitem label="&#8800;" data-editor-command="inserthtml" data-editor-value="&#8800;"></menuitem>
-					<menuitem label="&#8776;" data-editor-command="inserthtml" data-editor-value="&#8776;"></menuitem>
-					<menuitem label="&#8804;" data-editor-command="inserthtml" data-editor-value="&#8804;"></menuitem>
-					<menuitem label="&#8805;" data-editor-command="inserthtml" data-editor-value="&#8805;"></menuitem>
-					<menuitem label="&#8747;" data-editor-command="inserthtml" data-editor-value="&#8747;"></menuitem>
-					<menuitem label="&#8721;" data-editor-command="inserthtml" data-editor-value="&#8721;"></menuitem>
-					<menuitem label="&#8706;" data-editor-command="inserthtml" data-editor-value="&#8706;"></menuitem>
-					<menuitem label="&#8710;" data-editor-command="inserthtml" data-editor-value="&#8710;"></menuitem>
-					<menuitem label="&#131;" data-editor-command="inserthtml" data-editor-value="&#131;"></menuitem>
-					<menuitem label="&deg;" data-editor-command="inserthtml" data-editor-value="&deg;"></menuitem>
-				</menu>
-				<menu label="Other">
-					<menuitem label="&spades;" data-editor-command="inserthtml" data-editor-value="&spades;"></menuitem>
-					<menuitem label="&clubs;" data-editor-command="inserthtml" data-editor-value="&clubs;"></menuitem>
-					<menuitem label="&diams;" data-editor-command="inserthtml" data-editor-value="&diams;"></menuitem>
-					<menuitem label="&hearts;" data-editor-command="inserthtml" data-editor-value="&hearts;"></menuitem>
-					<menuitem label="&#9792;" data-editor-command="inserthtml" data-editor-value="&#9792;"></menuitem>
-					<menuitem label="&#9794;" data-editor-command="inserthtml" data-editor-value="&#9794;"></menuitem>
-					<menuitem label="&larr;" data-editor-command="inserthtml" data-editor-value="&larr;"></menuitem>
-					<menuitem label="&rarr;" data-editor-command="inserthtml" data-editor-value="&rarr;"></menuitem>
-					<menuitem label="&uarr;" data-editor-command="inserthtml" data-editor-value="&uarr;"></menuitem>
-					<menuitem label="&darr;" data-editor-command="inserthtml" data-editor-value="&darr;"></menuitem>
-					<menuitem label="&#9833;" data-editor-command="inserthtml" data-editor-value="&#9833;"></menuitem>
-					<menuitem label="&#9834;" data-editor-command="inserthtml" data-editor-value="&#9834;"></menuitem>
-					<menuitem label="&#9836;" data-editor-command="inserthtml" data-editor-value="&#9836;"></menuitem>
-					<menuitem label="&#9837;" data-editor-command="inserthtml" data-editor-value="&#9837;"></menuitem>
-					<menuitem label="&#9839;" data-editor-command="inserthtml" data-editor-value="&#9839;"></menuitem>
-				</menu>
-			</menu>
-			<menuitem label="Line Break" data-editor-command="inserthtml" data-editor-value="<br />"></menuitem>
-			<menuitem label="Horizontal Rule" icon="images/octicons/svg/horizontal-rule.svg" data-editor-command="inserthorizontalrule"></menuitem>
-			<menu label="Selection">
-				<menuitem label="Select All" data-editor-command="selectall"></menuitem>
-				<menuitem label="Clear Formatting" icon="images/octicons/svg/circle-slash.svg" data-editor-command="removeformat"></menuitem>
-				<menuitem label="Remove Links" data-editor-command="unlink"></menuitem>
-			</menu>
-			<menu label="History">
-				<menuitem label="Undo" icon="images/octicons/svg/history.svg" data-editor-command="undo"></menuitem>
-				<menuitem label="Redo" icon="images/octicons/svg/history.svg" data-editor-command="redo"></menuitem>
-			</menu>
-			<menuitem label="Save Work"></menuitem>
-			<menuitem label="Restore Work"></menuitem>
-			<menuitem label="Full-Screen" icon="images/octicons/svg/screen-full.svg" data-fullscreen="main"></menuitem>
-		</menu>
+	<body class="flex column wrap" data-import="WYSIWYG Menu">
 		<header class="flex column">
 			<h1>
 				<svg height="30" width="30" class="currentColor"><use xlink:href="images/combined.svg#code"/></svg>
@@ -319,73 +82,7 @@
 				<svg height="30" width="30" class="currentColor"><use xlink:href="images/combined.svg#code"/></svg>
 			</h1>
 		</header>
-		<main class="flex column">
-			<menu type="toolbar" role="menubar" class="flex row wrap sticky" contenteditable="false">
-				<button type="button" title="New paragraph" data-editor-command="insertparagraph">
-					<svg><use xlink:href="images/combined.svg#file-text"/></svg>
-				</button>
-				<button type="button" title="Toggle Bold" data-editor-command="bold">
-					<b>B</b>
-				</button>
-				<button type="button" title="Toggle Italic" data-editor-command="italic">
-					<i>I</i>
-				</button>
-				<button type="button" title="Toggle Underline" data-editor-command="underline">
-					<u>U</u>
-				</button>
-				<button type="button" title="Toggle Strikethrough" data-editor-command="strikethrough">
-					<strike>S</strike>
-				</button>
-				<button type="button" title="Subscript" data-editor-command="subscript">
-					T<sub>x</sub>
-				</button>
-				<button type="button" title="Superscript" data-editor-command="superscript">
-					T<sup>x</sup>
-				</button>
-				<button type="button" title="Blockquote" data-editor-command="formatblock" data-editor-value="BLOCKQUOTE">
-					<svg><use xlink:href="images/combined.svg#quote"/></svg>
-				</button>
-				<span class="spacer"></span>
-				<button type="button" title="Insert Image" data-editor-command="insertimage" data-prompt="Enter image location">
-					<svg><use xlink:href="images/combined.svg#file-media"/></svg>
-				</button>
-				<button type="button" title="Make Link" data-editor-command="createlink" data-prompt="Enter link location">
-					<svg><use xlink:href="images/combined.svg#link"/></svg>
-				</button>
-				<button type="button" title="Make Ordered List" data-editor-command="insertorderedlist">
-					<svg><use xlink:href="images/combined.svg#list-ordered"/></svg>
-				</button>
-				<button type="button" title="Make Unordered List" data-editor-command="insertunorderedlist">
-					<svg><use xlink:href="images/combined.svg#list-unordered"/></svg>
-				</button>
-				<button type="button" title="Insert Code" data-editor-command="inserthtml" data-selection-to="code">
-					<svg><use xlink:href="images/combined.svg#code"/></svg>
-				</button>
-				<span class="spacer"></span>
-				<button type="button" title="Insert Horizontal Rule" data-editor-command="inserthorizontalrule">
-					<svg><use xlink:href="images/combined.svg#horizontal-rule"/></svg>
-				</button>
-				<button type="button" title="Increase Indent" data-editor-command="indent">
-					<svg><use xlink:href="images/combined.svg#move-right"/></svg>
-				</button>
-				<button type="button" title="Decrese Indent" data-editor-command="outdent">
-					<svg><use xlink:href="images/combined.svg#move-left"/></svg>
-				</button>
-				<span class="spacer"></span>
-				<button type="button" title="Remove Formatting" data-editor-command="removeformat">
-					<svg><use xlink:href="images/combined.svg#circle-slash"/></svg>
-				</button>
-				<button type="button" title="Custom HTML" data-editor-command="inserthtml" data-prompt="Enter the HTML to insert.">
-					<svg><use xlink:href="images/combined.svg#file-code"/></svg>
-				</button>
-				<span class="spacer"></span>
-				<a role="button" title="Download HTML" href="" download="index.html" hidden>
-					<svg><use xlink:href="images/combined.svg#cloud-download"/></svg>
-				</a>
-				<button type="button" title="Toggle Full-Screen" data-fullscreen="main">
-					<svg><use xlink:href="images/combined.svg#screen-full"/></svg>
-				</button>
-			</menu>
+		<main class="flex column" data-import="WYSIWYG Toolbar">
 			<section contextmenu="wysiwyg_menu" contenteditable="true" data-dropzone="body"></section>
 			<noscript>JavaScript is absolutely required for anything other than writing plain text</noscript>
 		</main>
