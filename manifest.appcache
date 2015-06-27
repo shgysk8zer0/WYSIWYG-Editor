@@ -46,7 +46,7 @@ images/cursors/3D_hand_cursor.svgz
 # components/header.html
 # components/README.html
 components/wysiwyg_menu.html
-components/wysiwyg_toolbar.html
+# components/wysiwyg_toolbar.html
 
 # FONTS
 fonts/acme.woff
