@@ -1626,7 +1626,7 @@ NodeList.prototype.bootstrap = function() {
 			});
 		});
 		node.query('[data-import]').forEach(function(el) {
-			var link = document.querySelector('link[rel="import"][name="' + el.dataset.import + '"]');
+			var link = document.querySelector('link[rel="import"][title="' + el.dataset.import + '"]');
 			var nodes = link.import.body.childNodes;
 			for (var i = 0; i < nodes.length; i++) {
 				if (nodes[i].nodeType === 1) {
