@@ -13,3 +13,9 @@ footer button, footer [role="button"], footer button:active, footer [role="butto
 	background: initial;
 	border: initial;
 }
+footer a {
+	color: inherit;
+}
+footer svg {
+	fill: currentcolor;
+}
