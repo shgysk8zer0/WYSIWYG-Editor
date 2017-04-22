@@ -1,0 +1,51 @@
+{
+  "name": "WYSIWYG-Editor",
+  "version": "2.0.0",
+  "description": "An HTML 5 WYSIWYG editor using `document.execCommand`",
+  "keywords": ["html5", "WYSIWYG", "execCommand"],
+  "author": {
+    "name": "Chris Zuber",
+    "email": "shgysk8zer0@gmail.com",
+    "url": "https://chriszuber.com"
+  },
+  "contributors": [],
+  "homepage": "",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "engines": {
+    "npm": ">=3.5"
+  },
+  "scripts": {
+    "build:css": "myth stylesheets/styles/import.css -c stylesheets/styles/styles.css",
+    "build:js": "webpack",
+    "build:icons": "php svgsprites.php",
+    "build:all": "npm run build:css && npm run build:js && npm run build:icons",
+    "lint:js": "eslint  --ext .es6 .",
+    "lint:php": "php unit.php",
+    "update": "npm run git:submodules && npm run git:fetch && npm run build:all && npm run git:hooks",
+    "test": "npm run lint:php && npm run lint:js",
+    "hook:pre-commit": "cp .git/hooks/pre-commit.sample .git/hooks/pre-commit && chmod u+x .git/hooks/pre-commit",
+    "hook:post-merge": "touch .git/hooks/post-merge && echo '#!/bin/sh' > .git/hooks/post-merge && echo 'npm run update' >> .git/hooks/post-merge && chmod u+x .git/hooks/post-merge",
+    "hook:pre-push": "touch .git/hooks/pre-push && echo '#!/bin/sh' > .git/hooks/pre-push && echo 'npm test' >> .git/hooks/pre-push && chmod u+x .git/hooks/pre-push",
+    "git:hooks": "npm run hook:pre-commit && npm run hook:post-merge && npm run hook:pre-push",
+	"git:fetch": "git fetch --all --prune --tags",
+	"git:submodules": "git submodule update --init --recursive",
+    "postinstall": "npm run git:hooks && npm run update"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "eslint": "^2.3.0",
+    "myth": "^1.5.0",
+    "svg-sprite-generator": "0.0.7",
+    "svgo": "^0.6.2",
+    "webpack": "^1.12.14"
+  }
+}
