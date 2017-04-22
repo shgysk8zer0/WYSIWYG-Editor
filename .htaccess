@@ -9,7 +9,7 @@ DirectoryIndex index.html
 	Header set X-UA-Compatible "IE=edge,chrome=1"
 	Header set Connection "Keep-Alive"
 	<Files index.html>
-		Header set Content-Security-Policy "default-src 'self';style-src 'self' 'unsafe-inline';img-src * 'self' data:;media-src *;frame-src *"
+		Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdn.polyfill.io; style-src 'self' 'unsafe-inline'; img-src * 'self' data:; media-src *; connect-src *"
 	</Files>
 	<Files manifest.json>
 		Header set Content-Type: "application/manifest+json"
