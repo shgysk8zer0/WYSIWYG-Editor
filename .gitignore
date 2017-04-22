@@ -3,6 +3,7 @@
 /*.pem
 /*.crx
 /patches/
+/node_modules/
 *.patch
 *.orig
 *.remote
