@@ -24,7 +24,7 @@
   "scripts": {
     "build:css": "postcss stylesheets/styles/index.css -o stylesheets/styles/index.min.css -u postcss-import postcss-cssnext cssnano -m",
     "build:js": "webpack",
-    "build:icons": "svg-sprite-generate -c images/icons.csv -o images/icons.svg",
+    "build:icons": "svg-sprite-generate -d images/octicons/lib/svg/ -o images/icons.svg",
     "build:all": "npm run build:icons && npm run build:css && npm run build:js",
     "lint:js": "eslint scripts",
     "watch:js": "webpack -w",
