@@ -18,10 +18,10 @@
 	},
 	"app": {
 		"urls": [
-			"http://wysiwyg.chriszuber.com"
+			"https://wysiwyg.chriszuber.com"
 		],
 		"launch": {
-			"web_url": "http://wysiwyg.chriszuber.com"
+			"web_url": "https://wysiwyg.chriszuber.com"
 		}
 	}
 }

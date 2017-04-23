@@ -1,32 +1,32 @@
 CACHE MANIFEST
-# VERSION 2015-06-26 06:31
-scripts/combined.js
+# VERSION 2017-04-22 11:22
+scripts/index.min.js
 
 # STYLESHEETS
-stylesheets/css/style.css
-stylesheets/core-css/print.css
+stylesheets/stylesheets/index.min.css
+# stylesheets/core-css/print.css
 
 # IMAGES
-images/combined.svg
+images/icons.svg
 
 # OCTICONS
-images/octicons/svg/list-unordered.svg
-images/octicons/svg/list-ordered.svg
-images/octicons/svg/link.svg
-images/octicons/svg/file-media.svg
-images/octicons/svg/code.svg
-images/octicons/svg/file-code.svg
-images/octicons/svg/file-text.svg
-images/octicons/svg/quote.svg
-images/octicons/svg/move-right.svg
-images/octicons/svg/move-left.svg
-images/octicons/svg/jump-left.svg
-images/octicons/svg/jump-right.svg
-images/octicons/svg/horizontal-rule.svg
-images/octicons/svg/circle-slash.svg
-images/octicons/svg/history.svg
-images/octicons/svg/screen-full.svg
-images/octicons/svg/globe.svg
+images/octicons/lib/svg/list-unordered.svg
+images/octicons/lib/svg/list-ordered.svg
+images/octicons/lib/svg/link.svg
+images/octicons/lib/svg/file-media.svg
+images/octicons/lib/svg/code.svg
+images/octicons/lib/svg/file-code.svg
+images/octicons/lib/svg/file-text.svg
+images/octicons/lib/svg/quote.svg
+images/octicons/lib/svg/move-right.svg
+images/octicons/lib/svg/move-left.svg
+images/octicons/lib/svg/jump-left.svg
+images/octicons/lib/svg/jump-right.svg
+images/octicons/lib/svg/horizontal-rule.svg
+images/octicons/lib/svg/circle-slash.svg
+images/octicons/lib/svg/history.svg
+images/octicons/lib/svg/screen-full.svg
+images/octicons/lib/svg/globe.svg
 
 # ICONS
 images/favicon-16.png
@@ -45,8 +45,8 @@ images/cursors/3D_hand_cursor.svgz
 # components/footer.html
 # components/header.html
 # components/README.html
-components/wysiwyg_menu.html
-components/wysiwyg_toolbar.html
+# components/wysiwyg_menu.html
+# components/wysiwyg_toolbar.html
 
 # FONTS
 fonts/acme.woff
