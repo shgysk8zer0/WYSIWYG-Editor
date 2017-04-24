@@ -1,4 +1,4 @@
-export function downloadHtml(click) {
+export function downloadHtml() {
 	const doc = document.implementation.createHTMLDocument();
 	const charset = doc.head.appendChild(doc.createElement('meta'));
 	const el = document.querySelector(this.dataset.downloadHtml);
